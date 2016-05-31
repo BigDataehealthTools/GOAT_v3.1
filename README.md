@@ -19,9 +19,13 @@ What you'll need:
     -http://useast.ensembl.org/biomart/martview/1b6c5a4447a4d09c26e2082dd71c86a6
 
 Run MySQL and apache server, 
+
 Then run these commands in this order:
+
 1- python manage.py makemigrations
+
 2- python manage.py migrate
+
 3- python manage.py runserver (if local or)       python manage.py runserver 0.0.0.0 if you already have an address for your server
 
 Datasets can't be provided because of intelletual property, but if you have Genome wide study datasets, they can fit in this database.
