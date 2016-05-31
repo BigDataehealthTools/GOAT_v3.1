@@ -20,8 +20,9 @@ What you'll need:
 
 Run MySQL and apache server, 
 
-In the GOAT/settings.py there is this import: import secrets.databases as databases
-You have to create a folder called secrets containing a script (call it databases or4 connections as you wish as long as you import it correctly) that holds all the connection parameters to your database (host, port, user, dbname...).
+In the GOAT/settings.py there is this import: import secrets.databases as databases.
+
+You have to create a folder called secrets containing a script that holds all the connection parameters to your database (host, port, user, dbname...).
 
 Then run these commands in this order:
 
