@@ -27,12 +27,19 @@ In the GOAT/settings.py there is this import: import secrets.databases as databa
 2- you delete the import secrets statement and at database in the settings.py file add:
 
 DATABASES = {
+
    default': {
+
         'ENGINE': 'django.db.backends.mysql',
+
         'NAME': 'xe',
+
         'USER': 'a_user',
+
         'PASSWORD': 'a_password',
+
         'HOST': 'dbprod01ned.mycompany.com',
+
         'PORT': '1540',
 }
 
