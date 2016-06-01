@@ -20,9 +20,21 @@ What you'll need:
 
 Run MySQL and apache server, 
 
-In the GOAT/settings.py there is this import: import secrets.databases as databases.
+In the GOAT/settings.py there is this import: import secrets.databases as databases and you have 2 possibilities to set up your database:
 
-You have to create a folder called secrets containing a script that holds all the connection parameters to your database (host, port, user, dbname...).
+1-You have to create a folder called secrets containing a script that holds all the connection parameters to your database (host, port, user, dbname...).
+
+2- you delete the import secrets statement and at database in the settings.py file add:
+
+DATABASES = {
+   default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'xe',
+        'USER': 'a_user',
+        'PASSWORD': 'a_password',
+        'HOST': 'dbprod01ned.mycompany.com',
+        'PORT': '1540',
+}
 
 Then run these commands in this order:
 
