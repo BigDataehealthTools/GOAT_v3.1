@@ -2950,3 +2950,324 @@ INFO [12/Apr/2016 12:49:13] Tables are ['assoc', 'marqueurs', 'phenotypes', 'exp
 INFO [12/Apr/2016 12:49:21] 255.255.255.255 : Victor Dupuy accessed the module : Web
 INFO [12/Apr/2016 12:49:21] Data comes from : MySQL Database
 INFO [12/Apr/2016 12:49:21] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:13:34] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:13:34] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:13:34] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:14:01] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:14:01] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:14:01] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:14:37] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:14:37] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:14:37] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:15:21] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:15:21] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:15:21] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:16:55] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:16:55] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:16:55] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:17:33] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:17:33] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:17:33] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:17:55] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:17:55] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:17:55] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:19:03] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:19:03] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:19:03] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:24:38] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:24:38] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:24:38] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:24:42] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:24:42] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:24:42] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:25:25] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:25:25] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:25:25] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:25:25] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:25:25] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:25:25] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:25:26] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:25:26] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:25:26] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:25:26] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:25:26] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:25:26] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:25:34] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:25:34] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:25:34] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:27:18] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:27:18] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:27:18] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:27:29] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:27:29] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:27:29] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:27:29] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:27:29] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:27:29] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:27:29] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [08/Feb/2017 01:27:29] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:27:29] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:44:24] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:44:24] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:24] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:44:24] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:24] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:24] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:40] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:41] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:41] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:41] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:41] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:41] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:41] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:42] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:42] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:42] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:42] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:42] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:42] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:42] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:42] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:42] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:42] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:42] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:42] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:43] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:43] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:43] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:43] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:43] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:43] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:44:51] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:44:51] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:44:51] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:48:14] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:48:14] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:48:14] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:48:14] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:48:14] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:48:14] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:48:57] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:48:57] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:48:57] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:48:57] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:48:57] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:48:57] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:49:28] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:49:28] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:49:28] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:49:28] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:49:28] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:49:28] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:50:46] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:50:46] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:50:46] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:50:46] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:50:46] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:50:46] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:52:23] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:52:23] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:23] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:52:23] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:52:23] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:23] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:52:25] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:52:25] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:25] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:52:40] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:52:40] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:40] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:52:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:52:40] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:52:52] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 01:52:52] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:52] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 01:52:52] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:52:52] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:52] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:52:53] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:52:53] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:52:53] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:55:17] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 01:55:17] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:55:17] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:57:00] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:57:00] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:57:00] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:57:23] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:57:23] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:57:23] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:58:00] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:58:00] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:58:00] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:58:30] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:58:30] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:58:30] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:58:33] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:58:33] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:58:33] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:58:49] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:58:49] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:58:49] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 01:59:27] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:59:27] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:59:27] Tables are ['marqueurs']
+INFO [08/Feb/2017 01:59:47] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 01:59:47] Data comes from : MySQL Database
+INFO [08/Feb/2017 01:59:47] Tables are ['marqueurs']
+INFO [08/Feb/2017 02:00:39] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:00:39] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:00:39] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 02:00:46] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:00:46] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:00:46] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 02:00:57] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:00:57] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:00:57] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 02:01:39] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:01:39] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:01:39] Tables are ['marqueurs']
+INFO [08/Feb/2017 02:01:39] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:01:40] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:01:40] Tables are ['marqueurs']
+INFO [08/Feb/2017 02:01:59] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:01:59] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:01:59] Tables are ['marqueurs']
+INFO [08/Feb/2017 02:08:49] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:08:49] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:08:49] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 02:09:33] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [08/Feb/2017 02:09:33] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:09:33] Tables are ['marqueurs']
+INFO [08/Feb/2017 02:10:45] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 02:10:45] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:10:45] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 02:10:51] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [08/Feb/2017 02:10:51] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:10:51] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 02:10:51] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 02:10:51] Data comes from : MySQL Database
+INFO [08/Feb/2017 02:10:51] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 19:27:27] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 19:27:27] Data comes from : MySQL Database
+INFO [08/Feb/2017 19:27:27] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:08:10] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:08:10] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:08:10] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:08:10] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:08:10] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:08:10] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:11:19] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [08/Feb/2017 20:11:19] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:11:19] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 20:31:29] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:31:29] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:31:29] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:31:29] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:31:29] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:31:29] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:34:16] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [08/Feb/2017 20:34:16] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:34:16] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [08/Feb/2017 20:40:07] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:40:07] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:40:07] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:40:08] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [08/Feb/2017 20:40:08] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:40:08] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [08/Feb/2017 20:43:31] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [08/Feb/2017 20:43:31] Data comes from : MySQL Database
+INFO [08/Feb/2017 20:43:31] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 01:06:57] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [09/Feb/2017 01:06:57] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:06:57] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 01:06:57] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:06:57] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:06:57] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:06:57] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:06:57] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:06:57] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:10:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:10:40] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:10:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:10:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:10:40] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:10:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:12:58] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [09/Feb/2017 01:12:58] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:12:58] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 01:15:36] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 01:15:36] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:15:36] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:16:23] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 01:16:23] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:16:23] Tables are ['marqueurs']
+INFO [09/Feb/2017 01:20:05] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [09/Feb/2017 01:20:05] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:20:05] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 01:20:05] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:20:05] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:20:05] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:20:05] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:20:05] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:20:05] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:24:17] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:24:17] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:24:17] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:24:17] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 01:24:17] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:24:17] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 01:26:10] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [09/Feb/2017 01:26:10] Data comes from : MySQL Database
+INFO [09/Feb/2017 01:26:10] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 14:30:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 14:30:40] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:30:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:30:40] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 14:30:40] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:30:40] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:34:13] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [09/Feb/2017 14:34:13] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:34:13] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 14:38:23] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 14:38:23] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:38:23] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:38:23] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [09/Feb/2017 14:38:23] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:38:23] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:38:48] 255.255.255.255 : Victor Dupuy accessed the module : Interactive Manhattan
+INFO [09/Feb/2017 14:38:48] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:38:48] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [09/Feb/2017 14:44:18] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 14:44:18] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:44:18] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:45:05] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 14:45:05] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:45:05] Tables are ['marqueurs']
+INFO [09/Feb/2017 14:47:55] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 14:47:55] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:47:55] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [09/Feb/2017 14:49:26] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [09/Feb/2017 14:49:26] Data comes from : MySQL Database
+INFO [09/Feb/2017 14:49:26] Tables are ['marqueurs']
+INFO [11/Feb/2017 17:28:52] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 17:28:52] Data comes from : MySQL Database
+INFO [11/Feb/2017 17:28:52] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [11/Feb/2017 17:29:36] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 17:29:36] Data comes from : MySQL Database
+INFO [11/Feb/2017 17:29:36] Tables are ['marqueurs']
+INFO [11/Feb/2017 17:31:35] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 17:31:35] Data comes from : MySQL Database
+INFO [11/Feb/2017 17:31:35] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [11/Feb/2017 17:32:19] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 17:32:19] Data comes from : MySQL Database
+INFO [11/Feb/2017 17:32:19] Tables are ['marqueurs']
+INFO [11/Feb/2017 22:18:30] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 22:18:30] Data comes from : MySQL Database
+INFO [11/Feb/2017 22:18:30] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [11/Feb/2017 22:19:30] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [11/Feb/2017 22:19:30] Data comes from : MySQL Database
+INFO [11/Feb/2017 22:19:30] Tables are ['marqueurs']

@@ -2122,3 +2122,1076 @@ NameError: global name 'lel' is not defined
 [12/Apr/2016 12:49:11] WARNING [django.request:182] Not Found: /autocomplete/genes/SPOCK
 [12/Apr/2016 12:49:11] WARNING [django.request:182] Not Found: /autocomplete/genes/SPOCK3
 [12/Apr/2016 12:49:13] WARNING [django.request:182] Not Found: /snpsForGene/SPOCK3
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[08/Feb/2017 01:13:21] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[08/Feb/2017 01:13:22] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[08/Feb/2017 01:13:23] WARNING [django.request:152] Not Found: /favicon.ico
+[08/Feb/2017 01:13:23] WARNING [django.server:131] "GET /favicon.ico HTTP/1.1" 404 3855
+[08/Feb/2017 01:13:25] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 01:13:25] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:14:38] ERROR [django.request:124] Internal Server Error: /areaSelection/11/1/RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:14:44] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:14:45] ERROR [django.server:131] "GET /areaSelection/11/1/RS33333/1254/750 HTTP/1.1" 500 98933
+[08/Feb/2017 01:15:21] ERROR [django.request:124] Internal Server Error: /areaSelection/11/1/RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:15:27] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:15:27] ERROR [django.server:131] "GET /areaSelection/11/1/RS33333/1254/750 HTTP/1.1" 500 98933
+[08/Feb/2017 01:17:34] ERROR [django.request:124] Internal Server Error: /areaSelection/11/1/RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:17:38] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:17:38] ERROR [django.server:131] "GET /areaSelection/11/1/RS33333/1254/750 HTTP/1.1" 500 98933
+[08/Feb/2017 01:19:03] ERROR [django.request:124] Internal Server Error: /areaSelection/11/1//1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:19:08] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:19:08] ERROR [django.server:131] "GET /areaSelection/11/1//1254/750 HTTP/1.1" 500 98814
+[08/Feb/2017 01:19:42] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:24:21] ERROR [django.request:124] Internal Server Error: /areaSelection/1//rs33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 271, in areaSelection
+    position_max = int(position)+ 1500000
+ValueError: invalid literal for int() with base 10: ''
+[08/Feb/2017 01:24:21] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:24:21] ERROR [django.server:131] "GET /areaSelection/1//rs33333/1254/750 HTTP/1.1" 500 73842
+[08/Feb/2017 01:24:28] ERROR [django.request:124] Internal Server Error: /areaSelection/1//RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 271, in areaSelection
+    position_max = int(position)+ 1500000
+ValueError: invalid literal for int() with base 10: ''
+[08/Feb/2017 01:24:29] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:24:29] ERROR [django.server:131] "GET /areaSelection/1//RS33333/1254/750 HTTP/1.1" 500 73842
+[08/Feb/2017 01:24:59] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:25:01] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:25:09] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[08/Feb/2017 01:25:10] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[08/Feb/2017 01:25:11] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[08/Feb/2017 01:25:16] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:25:25] INFO [django.server:131] "GET /table/rsID/rs33333 HTTP/1.1" 301 0
+[08/Feb/2017 01:25:26] ERROR [django.request:124] Internal Server Error: /areaSelection/1/10000/RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:25:26] ERROR [django.request:124] Internal Server Error: /areaSelection/1/00001/RS33333/1254/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:25:26] INFO [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 200 62
+[08/Feb/2017 01:25:34] INFO [django.server:131] "GET /manhattan/rsID/rs33333/1254/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:25:34] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/1254/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:25:34] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:25:34] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:25:35] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:25:35] ERROR [django.server:131] "GET /areaSelection/1/00001/RS33333/1254/750 HTTP/1.1" 500 98989
+[08/Feb/2017 01:25:35] ERROR [django.server:131] "GET /areaSelection/1/10000/RS33333/1254/750 HTTP/1.1" 500 98989
+[08/Feb/2017 01:25:35] INFO [django.server:85] - Broken pipe from ('127.0.0.1', 51137)
+
+[08/Feb/2017 01:25:35] INFO [django.server:85] - Broken pipe from ('127.0.0.1', 51134)
+
+[08/Feb/2017 01:25:35] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/1254/750/ HTTP/1.1" 500 71937
+[08/Feb/2017 01:27:08] INFO [django.server:131] "GET /autocomplete/phenotypes/ag HTTP/1.1" 301 0
+[08/Feb/2017 01:27:08] INFO [django.server:131] "GET /autocomplete/phenotypes/ag/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:08] INFO [django.server:131] "GET /autocomplete/phenotypes/age HTTP/1.1" 301 0
+[08/Feb/2017 01:27:08] INFO [django.server:131] "GET /autocomplete/phenotypes/age/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:13] INFO [django.server:131] "GET /autocomplete/phenotypes/ag/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:13] INFO [django.server:131] "GET /autocomplete/phenotypes/age/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:18] INFO [django.server:131] "GET /manhattan/rsID/rs3333/1254/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:27:19] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs3333/1254/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:27:19] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:27:19] ERROR [django.server:131] "GET /manhattan/rsID/rs3333/1254/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:27:28] INFO [django.server:131] "GET /autocomplete/phenotypes/ag/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:28] INFO [django.server:131] "GET /autocomplete/phenotypes/age/ HTTP/1.1" 200 2
+[08/Feb/2017 01:27:29] INFO [django.server:131] "GET /manhattan/phenotype/age/1254/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:27:29] ERROR [django.request:124] Internal Server Error: /manhattan/phenotype/age/1254/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 68, in manhattan
+    graph, div = generateManhattan(data, 0.00000005, phenotype, int(userWidth), int(userHeight))
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 115, in generateManhattan
+    max_v=int(manhattanData.log10.max())
+ValueError: cannot convert float NaN to integer
+[08/Feb/2017 01:27:29] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:27:29] ERROR [django.server:131] "GET /manhattan/phenotype/age/1254/750/ HTTP/1.1" 500 77708
+[08/Feb/2017 01:32:35] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:32:35] ERROR [django.request:124] Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/Web/views.py", line 61, in login
+    username = request.POST['userName']
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/utils/datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+MultiValueDictKeyError: "'userName'"
+[08/Feb/2017 01:32:35] ERROR [django.server:131] "GET /login HTTP/1.1" 500 74127
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[08/Feb/2017 01:32:43] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[08/Feb/2017 01:32:44] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[08/Feb/2017 01:43:40] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:44:24] INFO [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 200 62
+[08/Feb/2017 01:44:40] INFO [django.server:131] "GET /manhattan/rsID/rs33333/819/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:44:40] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:40] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:40] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:41] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:41] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:41] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:41] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:41] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:41] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:42] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:42] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:42] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:42] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:42] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:42] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:42] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:42] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:42] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:42] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:42] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:42] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:43] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:43] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:43] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:43] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:43] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:43] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:44:51] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:44:51] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:44:51] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 01:48:14] INFO [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 200 62
+[08/Feb/2017 01:48:57] ERROR [django.request:124] Internal Server Error: /table/rsID/rs33333/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/Web/views.py", line 90, in table
+    if significantPhenotypes.any()['nom']: # Check if there are significant phenotypes
+AttributeError: 'list' object has no attribute 'any'
+[08/Feb/2017 01:48:57] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:48:57] ERROR [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 500 73328
+[08/Feb/2017 01:49:06] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[08/Feb/2017 01:49:06] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:49:06] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:49:06] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 01:49:06] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[08/Feb/2017 01:49:06] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 01:49:07] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 01:49:07] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 01:49:07] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 01:49:08] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 01:49:08] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 01:49:08] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 01:49:16] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[08/Feb/2017 01:49:17] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 01:49:17] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 01:49:17] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 01:49:17] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 01:49:17] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 01:49:17] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 01:49:17] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 01:49:17] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 01:49:17] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[08/Feb/2017 01:49:22] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 01:49:22] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:49:28] INFO [django.server:131] "GET /table/rsID/rs33333 HTTP/1.1" 301 0
+[08/Feb/2017 01:49:28] ERROR [django.request:124] Internal Server Error: /table/rsID/rs33333/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/Web/views.py", line 90, in table
+    if significantPhenotypes.any()['nom']: # Check if there are significant phenotypes
+AttributeError: 'list' object has no attribute 'any'
+[08/Feb/2017 01:49:28] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:49:28] ERROR [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 500 73589
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[08/Feb/2017 01:50:34] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[08/Feb/2017 01:50:34] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 01:50:34] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 01:50:34] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 01:50:34] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 01:50:34] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 01:50:34] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 01:50:35] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 01:50:35] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 01:50:35] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[08/Feb/2017 01:50:42] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 01:50:42] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:50:46] INFO [django.server:131] "GET /table/rsID/rs33333 HTTP/1.1" 301 0
+[08/Feb/2017 01:50:46] INFO [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 200 62
+[08/Feb/2017 01:52:22] INFO [django.server:131] "GET /table/rsID/rs1361196 HTTP/1.1" 301 0
+[08/Feb/2017 01:52:23] INFO [django.server:131] "GET /table/rsID/rs1361196/ HTTP/1.1" 200 62
+[08/Feb/2017 01:52:25] INFO [django.server:131] "GET /manhattan/rsID/rs1361196/819/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:52:25] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs1361196/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:52:25] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:52:25] ERROR [django.server:131] "GET /manhattan/rsID/rs1361196/819/750/ HTTP/1.1" 500 72215
+[08/Feb/2017 01:52:40] INFO [django.server:131] "GET /table/rsID/rs333333 HTTP/1.1" 301 0
+[08/Feb/2017 01:52:40] INFO [django.server:131] "GET /table/rsID/rs333333/ HTTP/1.1" 200 62
+[08/Feb/2017 01:52:52] INFO [django.server:131] "GET /table/rsID/rs1361196 HTTP/1.1" 301 0
+[08/Feb/2017 01:52:52] INFO [django.server:131] "GET /table/rsID/rs1361196/ HTTP/1.1" 200 62
+[08/Feb/2017 01:52:53] INFO [django.server:131] "GET /manhattan/rsID/rs1361196/819/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:52:53] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs1361196/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 01:52:53] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:52:53] ERROR [django.server:131] "GET /manhattan/rsID/rs1361196/819/750/ HTTP/1.1" 500 72215
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[08/Feb/2017 01:55:10] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[08/Feb/2017 01:55:10] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 01:55:10] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 01:55:10] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 01:55:10] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 01:55:10] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 01:55:10] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 01:55:10] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 01:55:10] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 01:55:11] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[08/Feb/2017 01:55:12] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 01:55:12] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:55:17] INFO [django.server:131] "GET /manhattan/rsID/rs33333/819/750 HTTP/1.1" 301 0
+[08/Feb/2017 01:55:17] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/819/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 86, in getManhattanData
+    if significantPhenotypes.any()['nom']: # Check if there are significant phenotypes
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/series.py", line 603, in __getitem__
+    result = self.index.get_value(self, key)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/indexes/base.py", line 2183, in get_value
+    raise e1
+KeyError: 'nom'
+[08/Feb/2017 01:55:17] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:55:18] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/819/750/ HTTP/1.1" 500 86623
+[08/Feb/2017 01:56:44] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 01:56:44] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:58:01] ERROR [django.request:124] Internal Server Error: /areaSelection/1/1//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:58:07] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:58:07] ERROR [django.server:131] "GET /areaSelection/1/1//819/750 HTTP/1.1" 500 99045
+[08/Feb/2017 01:58:30] ERROR [django.request:124] Internal Server Error: /areaSelection/1/1//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:58:34] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:58:35] ERROR [django.server:131] "GET /areaSelection/1/1//819/750 HTTP/1.1" 500 99045
+[08/Feb/2017 01:58:54] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 01:58:58] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 01:59:04] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 01:59:04] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 01:59:04] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 01:59:04] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 01:59:04] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 01:59:04] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 01:59:04] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 01:59:04] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 01:59:27] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:59:32] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:59:33] ERROR [django.server:131] "GET /areaSelection/4/4936161//819/750 HTTP/1.1" 500 99117
+[08/Feb/2017 01:59:33] INFO [django.server:85] - Broken pipe from ('127.0.0.1', 51687)
+
+[08/Feb/2017 01:59:47] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936160//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 01:59:53] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 01:59:53] ERROR [django.server:131] "GET /areaSelection/4/4936160//819/750 HTTP/1.1" 500 98856
+[08/Feb/2017 01:59:53] INFO [django.server:85] - Broken pipe from ('127.0.0.1', 51690)
+
+[08/Feb/2017 02:01:40] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 02:01:53] INFO [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/819/750 HTTP/1.1" 200 10364542
+[08/Feb/2017 02:01:54] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 02:01:55] ERROR [django.server:131] "GET /areaSelection/4/4936161//819/750 HTTP/1.1" 500 99117
+[08/Feb/2017 02:02:00] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161//819/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 121, in generateAreaSelection
+    snps["log10"] = -numpy.log10(snps.pvalue_assoc)                     #transformation
+AttributeError: log10
+[08/Feb/2017 02:02:05] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 02:02:05] ERROR [django.server:131] "GET /areaSelection/4/4936161//819/750 HTTP/1.1" 500 99117
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[08/Feb/2017 02:07:03] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[08/Feb/2017 02:07:04] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[08/Feb/2017 02:07:06] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 02:07:17] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 02:07:23] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 02:09:35] INFO [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/1255/750 HTTP/1.1" 200 10364543
+[08/Feb/2017 02:10:33] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 02:10:37] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 02:10:45] INFO [django.server:131] "GET /manhattan/rsID/rs33333/1255/750 HTTP/1.1" 301 0
+[08/Feb/2017 02:10:45] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/1255/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 02:10:45] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 02:10:46] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/1255/750/ HTTP/1.1" 500 71937
+[08/Feb/2017 02:10:51] INFO [django.server:131] "GET /table/rsID/rs33333/ HTTP/1.1" 200 62
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[08/Feb/2017 19:27:01] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[08/Feb/2017 19:27:02] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[08/Feb/2017 19:27:09] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 19:27:27] INFO [django.server:131] "GET /manhattan/rsID/rs33333/953/750 HTTP/1.1" 301 0
+[08/Feb/2017 19:27:27] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs33333/953/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 66, in manhattan
+    data, phenotype = getManhattanData(type, value)
+ValueError: too many values to unpack
+[08/Feb/2017 19:27:28] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 19:27:28] ERROR [django.server:131] "GET /manhattan/rsID/rs33333/953/750/ HTTP/1.1" 500 71920
+[08/Feb/2017 20:07:52] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 20:08:10] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1155/750 HTTP/1.1" 301 0
+[08/Feb/2017 20:11:16] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 20:11:16] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 20:11:16] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 20:11:16] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 20:11:16] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 20:11:16] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 20:11:16] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 20:11:16] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 20:11:22] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1155/750/ HTTP/1.1" 200 1103163
+[08/Feb/2017 20:11:23] INFO [django.server:131] "GET /div HTTP/1.1" 200 69
+[08/Feb/2017 20:16:38] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 20:16:38] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 20:16:38] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 20:16:38] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 20:16:38] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 20:16:38] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 20:16:38] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 20:16:38] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 20:31:07] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[08/Feb/2017 20:31:08] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[08/Feb/2017 20:31:08] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 20:31:08] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 20:31:08] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 20:31:08] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 20:31:08] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 20:31:08] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 20:31:09] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 20:31:09] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 20:31:09] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[08/Feb/2017 20:31:14] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[08/Feb/2017 20:31:14] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 20:31:29] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1155/750 HTTP/1.1" 301 0
+[08/Feb/2017 20:34:18] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs2558128/1155/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 68, in manhattan
+    graph, div = generateManhattan(data, 0.00000005, phenotype, int(userWidth), int(userHeight))
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 159, in generateManhattan
+    y_range=(2.0,max_v+3),
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plotting.py", line 275, in figure
+    fig = Figure(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plotting.py", line 67, in __init__
+    super(Figure, self).__init__(*arg, **kw)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/models/plots.py", line 86, in __init__
+    super(Plot, self).__init__(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plot_object.py", line 90, in __init__
+    super(PlotObject, self).__init__(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/properties.py", line 357, in __init__
+    setattr(self, name, value)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/properties.py", line 371, in __setattr__
+    (name, self.__class__.__name__, text, nice_join(matches)))
+AttributeError: unexpected attribute 'webgl' to Figure, possible attributes are above, background_fill, below, border_fill, disabled, extra_x_ranges, extra_y_ranges, h_symmetry, left, lod_factor, lod_interval, lod_threshold, lod_timeout, logo, min_border, min_border_bottom, min_border_left, min_border_right, min_border_top, name, outline_line_alpha, outline_line_cap, outline_line_color, outline_line_dash, outline_line_dash_offset, outline_line_join, outline_line_width, plot_height, plot_width, renderers, right, session, tags, title, title_text_align, title_text_alpha, title_text_baseline, title_text_color, title_text_font, title_text_font_size, title_text_font_style, tool_events, toolbar_location, tools, v_symmetry, x_mapper_type, x_range, y_mapper_type or y_range
+[08/Feb/2017 20:34:32] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 20:34:32] ERROR [django.server:131] "GET /manhattan/rsID/rs2558128/1155/750/ HTTP/1.1" 500 139705
+[08/Feb/2017 20:40:01] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[08/Feb/2017 20:40:18] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[08/Feb/2017 20:40:18] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[08/Feb/2017 20:40:18] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[08/Feb/2017 20:40:18] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[08/Feb/2017 20:40:18] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[08/Feb/2017 20:40:18] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[08/Feb/2017 20:40:18] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[08/Feb/2017 20:40:18] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[08/Feb/2017 20:43:33] ERROR [django.request:124] Internal Server Error: /manhattan/rsID/rs2558128/1155/750/
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 68, in manhattan
+    graph, div = generateManhattan(data, 0.00000005, phenotype, int(userWidth), int(userHeight))
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/bokeh_GOAT/views.py", line 159, in generateManhattan
+    y_range=(2.0,max_v+3),
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plotting.py", line 275, in figure
+    fig = Figure(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plotting.py", line 67, in __init__
+    super(Figure, self).__init__(*arg, **kw)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/models/plots.py", line 86, in __init__
+    super(Plot, self).__init__(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/plot_object.py", line 90, in __init__
+    super(PlotObject, self).__init__(**kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/properties.py", line 357, in __init__
+    setattr(self, name, value)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/bokeh/properties.py", line 371, in __setattr__
+    (name, self.__class__.__name__, text, nice_join(matches)))
+AttributeError: unexpected attribute 'webgl' to Figure, possible attributes are above, background_fill, below, border_fill, disabled, extra_x_ranges, extra_y_ranges, h_symmetry, left, lod_factor, lod_interval, lod_threshold, lod_timeout, logo, min_border, min_border_bottom, min_border_left, min_border_right, min_border_top, name, outline_line_alpha, outline_line_cap, outline_line_color, outline_line_dash, outline_line_dash_offset, outline_line_join, outline_line_width, plot_height, plot_width, renderers, right, session, tags, title, title_text_align, title_text_alpha, title_text_baseline, title_text_color, title_text_font, title_text_font_size, title_text_font_style, tool_events, toolbar_location, tools, v_symmetry, x_mapper_type, x_range, y_mapper_type or y_range
+[08/Feb/2017 20:43:47] WARNING [django.security.SuspiciousSession:117] Session data corrupted
+[08/Feb/2017 20:43:47] ERROR [django.server:131] "GET /manhattan/rsID/rs2558128/1155/750/ HTTP/1.1" 500 139444
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[09/Feb/2017 00:42:03] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[09/Feb/2017 00:42:04] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[09/Feb/2017 00:42:04] WARNING [django.request:152] Not Found: /favicon.ico
+[09/Feb/2017 00:42:04] WARNING [django.server:131] "GET /favicon.ico HTTP/1.1" 404 3855
+[09/Feb/2017 00:42:21] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[09/Feb/2017 00:42:21] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[09/Feb/2017 00:42:21] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[09/Feb/2017 00:42:21] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[09/Feb/2017 00:42:21] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[09/Feb/2017 00:42:21] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[09/Feb/2017 00:42:21] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[09/Feb/2017 00:42:21] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[09/Feb/2017 01:06:49] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 01:06:49] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:06:57] INFO [django.server:131] "GET /table/rsID/rs2558128 HTTP/1.1" 301 0
+[09/Feb/2017 01:09:10] INFO [django.server:131] "GET /table/rsID/rs2558128/ HTTP/1.1" 200 2538174
+[09/Feb/2017 01:10:08] WARNING [django.request:152] Not Found: /favicon.ico
+[09/Feb/2017 01:10:08] WARNING [django.server:131] "GET /favicon.ico HTTP/1.1" 404 3855
+[09/Feb/2017 01:10:30] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:10:40] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1027/750 HTTP/1.1" 301 0
+[09/Feb/2017 01:10:44] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[09/Feb/2017 01:10:44] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[09/Feb/2017 01:10:44] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[09/Feb/2017 01:10:44] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[09/Feb/2017 01:10:44] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[09/Feb/2017 01:10:44] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[09/Feb/2017 01:10:44] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[09/Feb/2017 01:10:44] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[09/Feb/2017 01:13:01] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1027/750/ HTTP/1.1" 200 987180
+[09/Feb/2017 01:13:01] INFO [django.server:131] "GET /div HTTP/1.1" 200 70
+[09/Feb/2017 01:13:48] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 01:13:48] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:14:02] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 01:14:02] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:16:29] INFO [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/1027/750 HTTP/1.1" 200 10921188
+[09/Feb/2017 01:19:45] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 01:19:45] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:20:05] INFO [django.server:131] "GET /table/rsID/rs2558128 HTTP/1.1" 301 0
+[09/Feb/2017 01:22:09] INFO [django.server:131] "GET /table/rsID/rs2558128/ HTTP/1.1" 200 2538174
+[09/Feb/2017 01:24:11] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 01:24:11] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 01:24:17] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1027/750 HTTP/1.1" 301 0
+[09/Feb/2017 01:26:17] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/1027/750/ HTTP/1.1" 200 5793171
+[09/Feb/2017 01:26:17] INFO [django.server:131] "GET /div HTTP/1.1" 200 70
+[09/Feb/2017 05:26:31] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 05:26:38] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 14:19:10] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 14:30:40] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/574/750 HTTP/1.1" 301 0
+[09/Feb/2017 14:31:09] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[09/Feb/2017 14:31:09] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[09/Feb/2017 14:31:09] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[09/Feb/2017 14:31:09] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[09/Feb/2017 14:31:09] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[09/Feb/2017 14:31:09] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[09/Feb/2017 14:31:09] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[09/Feb/2017 14:31:09] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[09/Feb/2017 14:34:17] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/574/750/ HTTP/1.1" 200 987179
+[09/Feb/2017 14:34:17] INFO [django.server:131] "GET /div HTTP/1.1" 200 70
+[09/Feb/2017 14:37:44] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[09/Feb/2017 14:37:46] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[09/Feb/2017 14:37:46] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[09/Feb/2017 14:37:46] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[09/Feb/2017 14:37:47] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[09/Feb/2017 14:37:47] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[09/Feb/2017 14:37:47] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[09/Feb/2017 14:37:47] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[09/Feb/2017 14:37:47] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[09/Feb/2017 14:37:47] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[09/Feb/2017 14:37:47] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[09/Feb/2017 14:37:47] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[09/Feb/2017 14:37:47] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[09/Feb/2017 14:37:47] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[09/Feb/2017 14:37:48] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[09/Feb/2017 14:37:48] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[09/Feb/2017 14:37:49] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[09/Feb/2017 14:37:57] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 14:37:57] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 14:38:23] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/574/750 HTTP/1.1" 301 0
+[09/Feb/2017 14:38:50] INFO [django.server:131] "GET /manhattan/rsID/rs2558128/574/750/ HTTP/1.1" 200 194209
+[09/Feb/2017 14:38:50] INFO [django.server:131] "GET /div HTTP/1.1" 200 70
+[09/Feb/2017 14:41:13] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 14:41:13] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 14:45:05] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161/All cause death/574/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 123, in generateAreaSelection
+    max_pvalue = int(snps.log10[0:1])                                      # GET MINIMUM P-VALUE
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/series.py", line 91, in wrapper
+    return converter(self.iloc[0])
+ValueError: cannot convert float NaN to integer
+[09/Feb/2017 14:45:12] ERROR [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/574/750 HTTP/1.1" 500 103922
+[09/Feb/2017 14:46:59] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 200 4288
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 23409
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 200 95957
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 200 93186
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 200 798680
+[09/Feb/2017 14:47:01] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 200 1223460
+[09/Feb/2017 14:47:02] WARNING [django.request:152] Not Found: /static/css/bootstrap.min.css.map
+[09/Feb/2017 14:47:02] WARNING [django.request:152] Not Found: /static/css/bootstrap-theme.min.css.map
+[09/Feb/2017 14:47:02] WARNING [django.request:152] Not Found: /static/css/bokeh.min.css.map
+[09/Feb/2017 14:47:02] WARNING [django.server:131] "GET /static/css/bokeh.min.css.map HTTP/1.1" 404 1878
+[09/Feb/2017 14:47:02] WARNING [django.server:131] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 1890
+[09/Feb/2017 14:47:02] WARNING [django.server:131] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 1908
+[09/Feb/2017 14:47:03] WARNING [django.request:152] Not Found: /static/js/bokeh.min.js.map
+[09/Feb/2017 14:47:03] WARNING [django.server:131] "GET /static/js/bokeh.min.js.map HTTP/1.1" 404 1872
+[09/Feb/2017 14:47:04] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 200 45968
+[09/Feb/2017 14:47:09] INFO [django.server:131] "GET /phenotypes HTTP/1.1" 301 0
+[09/Feb/2017 14:47:09] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 14:49:26] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161/All cause death/574/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 284, in areaSelection
+    graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 123, in generateAreaSelection
+    max_pvalue = int(snps.log10[0:1])                                      # GET MINIMUM P-VALUE
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/series.py", line 91, in wrapper
+    return converter(self.iloc[0])
+ValueError: cannot convert float NaN to integer
+[09/Feb/2017 14:49:34] ERROR [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/574/750 HTTP/1.1" 500 103922
+[09/Feb/2017 15:45:26] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[09/Feb/2017 15:45:57] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[09/Feb/2017 15:46:12] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[11/Feb/2017 17:28:24] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/css/bokeh-0.11.0.min.css HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/css/screen.css HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/js/bokeh-0.11.0.min.js HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+[11/Feb/2017 17:28:25] INFO [django.server:131] "GET /static/js/main.js HTTP/1.1" 304 0
+[11/Feb/2017 17:28:26] INFO [django.server:131] "GET /static/fonts/Montserrat-Bold.otf HTTP/1.1" 304 0
+[11/Feb/2017 17:28:27] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[11/Feb/2017 17:29:37] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161/All cause death/834/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 283, in areaSelection
+    jsonData = buildAreaSelectionData(snps)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 258, in buildAreaSelectionData
+    data = data[['rs_ID', 'Chr', 'Position', 'GeneBefore', 'Gene', 'GeneAfter', 'Region','P-value', 'Imputed', 'Allele A', 'Allele B', 'Allele\nmineure','risk_allele','risk_af','risk_allele_beta', 'Cohort', 'dbSNP', 'GWAS_Catalog', 'Genecards']]
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2053, in __getitem__
+    return self._getitem_array(key)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2097, in _getitem_array
+    indexer = self.ix._convert_to_indexer(key, axis=1)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/indexing.py", line 1230, in _convert_to_indexer
+    raise KeyError('%s not in index' % objarr[mask])
+KeyError: "['risk_allele' 'risk_af' 'risk_allele_beta'] not in index"
+[11/Feb/2017 17:29:38] ERROR [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/834/750 HTTP/1.1" 500 112304
+[11/Feb/2017 17:32:19] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161/All cause death/834/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 283, in areaSelection
+    jsonData = buildAreaSelectionData(snps)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 258, in buildAreaSelectionData
+    data = data[['rs_ID', 'Chr', 'Position', 'GeneBefore', 'Gene', 'GeneAfter', 'Region','P-value', 'Imputed', 'Allele A', 'Allele B', 'Allele\nmineure','risk_allele','risk_af','risk_allele_beta', 'Cohort', 'dbSNP', 'GWAS_Catalog', 'Genecards']]
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2053, in __getitem__
+    return self._getitem_array(key)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2097, in _getitem_array
+    indexer = self.ix._convert_to_indexer(key, axis=1)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/indexing.py", line 1230, in _convert_to_indexer
+    raise KeyError('%s not in index' % objarr[mask])
+KeyError: "['risk_allele' 'risk_af' 'risk_allele_beta'] not in index"
+[11/Feb/2017 17:32:20] ERROR [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/834/750 HTTP/1.1" 500 112304
+[11/Feb/2017 22:16:48] INFO [django.server:131] "GET / HTTP/1.1" 200 1171
+[11/Feb/2017 22:16:53] INFO [django.server:131] "GET /phenotypes/ HTTP/1.1" 200 76
+[11/Feb/2017 22:19:30] ERROR [django.request:124] Internal Server Error: /areaSelection/4/4936161/All cause death/1194/750
+Traceback (most recent call last):
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 283, in areaSelection
+    jsonData = buildAreaSelectionData(snps)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/GOAT_Genetic_Output_Analysis_Tool/AreaSelection/views.py", line 258, in buildAreaSelectionData
+    data = data[['rs_ID', 'Chr', 'Position', 'GeneBefore', 'Gene', 'GeneAfter', 'Region','P-value', 'Imputed', 'Allele A', 'Allele B', 'Allele\nmineure','risk_allele','risk_af','risk_allele_beta', 'Cohort', 'dbSNP', 'GWAS_Catalog', 'Genecards']]
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2053, in __getitem__
+    return self._getitem_array(key)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/frame.py", line 2097, in _getitem_array
+    indexer = self.ix._convert_to_indexer(key, axis=1)
+  File "/Users/raphaelpapillon/Documents/Projects/Django/goat_v3/goat_v3_env/lib/python2.7/site-packages/pandas/core/indexing.py", line 1230, in _convert_to_indexer
+    raise KeyError('%s not in index' % objarr[mask])
+KeyError: "['risk_allele' 'risk_af' 'risk_allele_beta'] not in index"
+[11/Feb/2017 22:19:32] ERROR [django.server:131] "GET /areaSelection/4/4936161/All%20cause%20death/1194/750 HTTP/1.1" 500 112321

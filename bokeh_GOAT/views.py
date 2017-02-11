@@ -87,7 +87,7 @@ def getManhattanData(type, value):
         phenotype = getPhenotypes.getSignigicantPhenotypes(type, value).iat[0,0] #This gets the name of the significant phenotype
         # phenotype = "All cause death"
         # First we define the query
-        sqlQuery="select distinct a.rs_id_assoc, a.chromosome,a.pos,a.info_assoc,a.pvalue_assoc,a.allele_A,a.allele_B,a.cohort_AA,a.cohort_BB,a.beta_assoc,a.maf, a.all_OR,xp.covariates,m.gene,m.gene_before,m.gene_after from assoc a join experiment xp on a.experiment=xp.idexperiment join phenotypes  p  on xp.phenotype=p.idphenotypes join marqueurs m on a.rs_id_assoc=m.nom where p.nom='"+phenotype+"' and a.pvalue_assoc<=0.001"
+        sqlQuery="select distinct a.rs_id_assoc, a.chromosome,a.pos,a.info_assoc,a.pvalue_assoc,a.allele_A,a.allele_B,a.cohort_AA,a.cohort_BB,a.beta_assoc,a.maf, a.all_OR,xp.covariates,m.gene,m.gene_before,m.gene_after from assoc a join experiment xp on a.experiment=xp.idexperiment join phenotypes  p  on xp.phenotype=p.idphenotypes join marqueurs m on a.rs_id_assoc=m.nom where p.nom='"+phenotype+"' and a.pvalue_assoc<=0.001 limit 1000"
 
         # Then we fetch the data and store it in a dataframe
         sorted_data = connect.fetchData(sqlQuery)

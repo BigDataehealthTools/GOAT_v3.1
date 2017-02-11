@@ -63,38 +63,38 @@ def getAreaSelectionData(position_min, position_max, chromosome, phenotype):
     )
     snps = snps[(snps['pos']>position_min) & (snps['pos']<position_max)]
 
-    snps["risk_allele"] = numpy.where(\
-                            numpy.logical_or(\
-                                numpy.logical_and(snps['beta_assoc']>0, snps['Risk_on_rise']==1),\
-                                numpy.logical_and(snps['beta_assoc']<0, snps['Risk_on_rise']==0)\
-                            ),\
-                            snps['allele_B'],\
-                            snps['allele_A']\
-                          )
+    #snps["risk_allele"] = numpy.where(\
+    #                        numpy.logical_or(\
+    #                            numpy.logical_and(snps['beta_assoc']>0, snps['Risk_on_rise']==1),\
+    #                            numpy.logical_and(snps['beta_assoc']<0, snps['Risk_on_rise']==0)\
+    #                        ),\
+    #                        snps['allele_B'],\
+    #                        snps['allele_A']\
+    #                      )
     # snps["risk_allele"]=numpy.where((snps['beta_assoc'] > 0 & snps['Risk_on_rise']==1)|(snps['beta_assoc'] < 0 & snps['Risk_on_rise']==0), snps['allele_B'], snps['allele_A'])             # select risk allele
-    snps["risk_af"] = numpy.where(\
-                        numpy.logical_or(\
-                            numpy.logical_and(snps['beta_assoc'] > 0,snps['Risk_on_rise']==1),\
-                            numpy.logical_and(snps['beta_assoc'] < 0,snps['Risk_on_rise']==0)\
-                        ),\
-                        ((2*snps["cohort_BB"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"])),\
-                        ((2*snps["cohort_AA"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"]))\
-                      )
+    #snps["risk_af"] = numpy.where(\
+    #                    numpy.logical_or(\
+    #                        numpy.logical_and(snps['beta_assoc'] > 0,snps['Risk_on_rise']==1),\
+    #                        numpy.logical_and(snps['beta_assoc'] < 0,snps['Risk_on_rise']==0)\
+    #                    ),\
+    #                    ((2*snps["cohort_BB"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"])),\
+    #                    ((2*snps["cohort_AA"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"]))\
+    #                  )
     # snps["risk_af"]=numpy.where((snps['beta_assoc'] > 0 & snps['Risk_on_rise']==1)|(snps['beta_assoc'] < 0 & snps['Risk_on_rise']==0), ((2*snps["cohort_BB"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"])), ((2*snps["cohort_AA"])+snps["cohort_AB"])/((2*snps["cohort_AA"])+(2*snps["cohort_AB"])+(2*snps["cohort_BB"]))) #calculate allele frequency for each allele
-    snps["risk_allele_beta"] = numpy.where(\
-                        numpy.logical_or(\
-                            numpy.logical_and(snps['beta_assoc'] > 0,snps['Risk_on_rise']==1),\
-                            numpy.logical_and(snps['beta_assoc'] < 0,snps['Risk_on_rise']==0)\
-                        ),\
-                        snps['beta_assoc'],\
-                        snps['beta_assoc']*-1\
-                      )
+    #snps["risk_allele_beta"] = numpy.where(\
+    #                    numpy.logical_or(\
+    #                        numpy.logical_and(snps['beta_assoc'] > 0,snps['Risk_on_rise']==1),\
+    #                        numpy.logical_and(snps['beta_assoc'] < 0,snps['Risk_on_rise']==0)\
+    #                    ),\
+    #                    snps['beta_assoc'],\
+    #                    snps['beta_assoc']*-1\
+    #                  )
     # snps["risk_allele_beta"]=numpy.where((snps['beta_assoc'] > 0 & snps['Risk_on_rise']==1)|(snps['beta_assoc'] < 0 & snps['Risk_on_rise']==0), snps['beta_assoc'], snps['beta_assoc']*-1)         #update beta according to risk allele result
     snps.rename(columns = {'nom' : 'rs_id_assoc'}, inplace=True)
 
     sqlQuery2 = ("select m.nom, m.gene, m.gene_before, m.gene_after, m.end_gen_after,m.end_gen,m.start_gen,m.end_gen_before,m.func,m.position,m.start_gen_after,m.start_gen_before, m.observed "
-          +" from marqueurs m where m.chromosome="+chromosome+" and position between "+str(position_min)+" and "+str(position_max))
-    lastSnps= connect.fetchData(sqlQuery2)
+          +" from marqueurs m where m.chromosome="+chromosome+" and position between 0 and 9999999")# + str(position_min) + " and " + str(position_max))
+    lastSnps = connect.fetchData(sqlQuery2)
     UserLogs.add(
         'Victor Dupuy',
         '255.255.255.255',
@@ -124,10 +124,11 @@ def generateAreaSelection(dataframe, userWidth, userHeight, position_min, positi
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
                                     #NEW COLUMNS AND RENAMING
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+    """
     snps['imp'] = numpy.where(snps['info_assoc']==1, snps['log10'], 'NaN') # gather information on imputed snps
     snps['Imputed'] = numpy.where(snps['info_assoc']==1, True, False)            #discriminate between imputed and genotyped for table
     snps['interest'] = numpy.where(snps['log10']>=(-numpy.log10(0.00000005)), snps['log10'], 'NaN')  #select snp of interest
-
+    """
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
     source = ColumnDataSource(snps)                    # SOURCE DATA FOR BOKEH PLOT
     TOOLS = [HoverTool(

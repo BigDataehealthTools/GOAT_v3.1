@@ -31,7 +31,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import secrets.databases as databases
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -106,7 +105,14 @@ WSGI_APPLICATION = 'GOAT.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': databases.chum,
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'goat_db',
+        'USER': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'PASSWORD': 'root',
+    }
 }
 
 # Password validation
