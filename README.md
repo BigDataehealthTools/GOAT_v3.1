@@ -1,13 +1,13 @@
 # What you need #
 
-1. Have Python 2.7.8 installed
+1. Have Python 2.7.8 (or higher) installed
 2. Have [Pip installed](https://pip.pypa.io/en/stable/installing/)
 3. Have [Virtualenv installed](https://packaging.python.org/key_projects/#virtualenv)
 
 # How to set up #
 
 1. Clone repository
-2. Move into the goat_v2 folder
+2. Move into the goat_v3 folder
 3. Create a virtual environnement using Virtualenv
 4. Install needed libraries using this command :
 
