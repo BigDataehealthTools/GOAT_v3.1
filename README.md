@@ -1,54 +1,26 @@
-                                            # GOAT_Genetic_Output_Analysis_Tool
-GOAT is an open source web based visualization tool that is connected directly to the researchers database (providing that he respects the database schema) and has a user friendly interface that will enable them to:
-- Explore the information in their database at leisure freely;
-- Store all GWAS results in a precise format avoiding preformatting prior to visualization;
-- Filter, sort and select for the most relevant information before displaying a table of results that can be shared or visualized in a timely matter;
-- Use interactive visualization tools for rapid identification of items of interests offering features like zooming, selection, 3D view, mouse over with identification labels. Resulting graphs are produced in a publication ready format for scientific publications or presentations;
-- Produce graphs similar to LocusZoom and IGV but with improved features and performance creating a whole new visualization experience;
-- Access relevant external databases through dynamic links to gather information on SNPs and genes such as GeneCards, dbSNP and the GWAS Catalog.
+# What you need #
 
-****************************************************Installation************************************************************
+1. Have Python 2.7.8 installed
+2. Have [Pip installed](https://pip.pypa.io/en/stable/installing/)
+3. Have [Virtualenv installed](https://packaging.python.org/key_projects/#virtualenv)
 
-What you'll need:
-- Apache server
-- MySQL database (Schema is provided, you can visualize it through SQL designer)
-- Python 2.7.11 or higher
-- Django 1.9 or higher
-- Anaconda for Biopython
-- Upload annotation information from Ensembl in the marqueurs table of the database: 
-    -http://useast.ensembl.org/biomart/martview/1b6c5a4447a4d09c26e2082dd71c86a6
+# How to set up #
 
-Run MySQL and apache server, 
+1. Clone repository
+2. Move into the goat_v2 folder
+3. Create a virtual environnement using Virtualenv
+4. Install needed libraries using this command :
 
-In the GOAT/settings.py there is this import: import secrets.databases as databases and you have 2 possibilities to set up your database:
+    pip install -r /path/to/requirements.txt
 
-1-You have to create a folder called secrets containing a script that holds all the connection parameters to your database (host, port, user, dbname...).
+5. Set a MySQL database and load .sql files. (ask beatriz.kanzki@gmail.com)
+6. Connect projet to database (in the settings.py file)
+7. Migrate database (not really necessary since we loaded the sql files, but...)
+    
+    python manage.py migrate
 
-2- you delete the import secrets statement and at database in the settings.py file add:
+8. Create a new superuser using this command :
+    
+    python manage.py createsuperuser
 
-DATABASES = {
-
-   default': {
-
-        'ENGINE': 'django.db.backends.mysql',
-
-        'NAME': 'xe',
-
-        'USER': 'a_user',
-
-        'PASSWORD': 'a_password',
-
-        'HOST': 'dbprod01ned.mycompany.com',
-
-        'PORT': '1540',
-}
-
-Then run these commands in this order:
-
-1- python manage.py makemigrations
-
-2- python manage.py migrate
-
-3- python manage.py runserver (if local or)       python manage.py runserver 0.0.0.0 if you already have an address for your server
-
-Datasets can't be provided because of intelletual property, but if you have Genome wide study datasets, they can fit in this database.
+9. You should be good to go!
