@@ -3271,3 +3271,30 @@ INFO [11/Feb/2017 22:18:30] Tables are ['assoc', 'phenotypes', 'experiment']
 INFO [11/Feb/2017 22:19:30] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
 INFO [11/Feb/2017 22:19:30] Data comes from : MySQL Database
 INFO [11/Feb/2017 22:19:30] Tables are ['marqueurs']
+INFO [14/Feb/2017 15:30:54] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 15:30:54] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:30:54] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [14/Feb/2017 15:31:42] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 15:31:42] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:31:42] Tables are ['marqueurs']
+INFO [14/Feb/2017 15:39:32] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 15:39:32] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:39:32] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [14/Feb/2017 15:40:15] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 15:40:15] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:40:15] Tables are ['marqueurs']
+INFO [14/Feb/2017 15:41:03] 255.255.255.255 : Victor Dupuy accessed the module : Web
+INFO [14/Feb/2017 15:41:03] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:41:03] Tables are ['assoc', 'phenotypes', 'marqueurs']
+INFO [14/Feb/2017 15:41:03] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [14/Feb/2017 15:41:03] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:41:03] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [14/Feb/2017 15:41:03] 255.255.255.255 : Victor Dupuy accessed the module : Tools - getPhenotypes
+INFO [14/Feb/2017 15:41:03] Data comes from : MySQL Database
+INFO [14/Feb/2017 15:41:03] Tables are ['assoc', 'marqueurs', 'phenotypes', 'experiment']
+INFO [14/Feb/2017 16:22:27] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 16:22:27] Data comes from : MySQL Database
+INFO [14/Feb/2017 16:22:27] Tables are ['assoc', 'phenotypes', 'experiment']
+INFO [14/Feb/2017 16:23:18] 255.255.255.255 : Victor Dupuy accessed the module : AreaSelection
+INFO [14/Feb/2017 16:23:18] Data comes from : MySQL Database
+INFO [14/Feb/2017 16:23:18] Tables are ['marqueurs']

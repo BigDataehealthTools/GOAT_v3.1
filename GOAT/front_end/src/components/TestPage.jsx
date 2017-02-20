@@ -36,8 +36,8 @@ var TestPage = React.createClass({
   render: function() {
     return (
       <div>
+        <h1>This is my custom TestPage yees no maybe</h1>
         <div id="graph" className="col-sm-12">
-
         </div>
       </div>
     );
