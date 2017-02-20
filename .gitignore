@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io/api/osx,django,python
 
+node_modules/*
+GOAT/front_end/node_modules/*
+
 ### Django ###
 *.log
 *.pot
