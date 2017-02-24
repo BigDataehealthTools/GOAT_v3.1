@@ -295,3 +295,6 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
         separators=(',', ': ')
     )
     return HttpResponse(response)
+
+def uploadFile():
+    return HttpResponse()

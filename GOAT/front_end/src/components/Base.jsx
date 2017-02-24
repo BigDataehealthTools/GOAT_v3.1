@@ -46,6 +46,7 @@ var Reflux = require('reflux');
 var HomePage = require("./HomePage.jsx");
 var TablePage = require("./TablePage.jsx");
 var QueryParamsPage = require('./QueryParamsPage.jsx');
+var UploadFilePage = require('./UploadFilePage.jsx');
 var ManhattanPage = require('./ManhattanPage.jsx');
 var AreaSelectionParamsPage = require('./QueryASParamsPage.jsx');
 var AreaSelectionPage = require('./AreaSelectionPage.jsx');
@@ -93,6 +94,15 @@ var Base = React.createClass({
           message : data[1]
         });
         break;
+
+      case "uploadFile":
+        console.log("PFE");
+          this.setState({
+            appState : "UploadFile",
+            snps : []
+          });
+          break;
+
       case "manhattan" :
         console.log(data);
         this.setState({
@@ -154,6 +164,9 @@ var Base = React.createClass({
       case "QueryParams":
         return <QueryParamsPage phenotypes={this.state.phenotypes} message={this.state.message}/>
         break;
+
+      case "UploadFile":
+        return <UploadFilePage />
       case "Manhattan":
         return <ManhattanPage  function={this.state.function} div={this.state.div}/>
         break;

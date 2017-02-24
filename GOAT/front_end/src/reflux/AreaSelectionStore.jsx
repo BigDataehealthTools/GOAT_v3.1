@@ -79,7 +79,20 @@ var AreaSelectionStore = Reflux.createStore({
       };
     };
     xhr.send();
-  }
+  },
+    uploadFile : function(){
+      var store = this;
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', encodeURI("/phenotypes", true));
+      xhr.onload = function(){
+        if(xhr.status==200){
+           store.trigger('uploadFile');
+        } else {
+          console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
+        };
+      };
+      xhr.send();
+    }
 });
 
 module.exports = AreaSelectionStore;

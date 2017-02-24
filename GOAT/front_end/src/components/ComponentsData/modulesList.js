@@ -50,6 +50,15 @@ module.exports= [
       AreaSelectionActions.queryParams();
     }
   },
+  {
+    heading : "PFE",
+    content : "Area Selection, upload a file",
+    height : "auto",
+    size : centerClass,
+    action : function(){
+       AreaSelectionActions.uploadFile();
+    }
+  },
   // {
   //   heading :"Manhattan",
   //   content : "Displays a Manhattan plot for a selected treshold",

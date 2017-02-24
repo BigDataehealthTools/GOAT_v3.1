@@ -18,12 +18,32 @@ under the License.*/
 // Author of the file : Victor Dupuy
 // mail : victor.dupuy@hei.fr
 
+//Dependencies
+var React = require('react');
 var Reflux = require('reflux');
+var Dropzone = require('react-dropzone');
 
-var Actions = Reflux.createActions([
-  'queryParams',
-  'getAreaSelection',
-  'uploadFile'
-]);
+//Sub Components
+var FormPanel = require('./Panels/FormPanel.jsx');
+var PhenotypesTable = require('./Tables/PhenotypesTable.jsx');
 
-module.exports = Actions;
+//Component
+var UploadFilePage = React.createClass({
+  onDrop: function (acceptedFiles, rejectedFiles) {
+      console.log('Accepted files: ', acceptedFiles);
+      console.log('Rejected files: ', rejectedFiles);
+  },
+
+  render : function(){
+    return (
+      <div>
+        <h1>Upload file</h1>
+        <Dropzone onDrop={this.onDrop}>
+          <div>Try dropping some files here, or click to select files to upload.</div>
+        </Dropzone>
+      </div>
+    );
+  }
+});
+
+module.exports = UploadFilePage;

@@ -44,5 +44,6 @@ urlpatterns = [
     url(r'^manhattan/(?P<type>\w{0,20})/(?P<value>[0-9a-zA-Z_ ]{0,50})/(?P<userWidth>[0-9]+)/(?P<userHeight>[0-9]+)/', bokehGOAT.manhattan),
     url(r'^div', bokehGOAT.getManhattanDiv),
     url(r'^phenotypes/', phenotypes.get),
+    url(r'^uploadFile/', AreaSelection.uploadFile),
     url(r'^admin/', admin.site.urls),
 ] +static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
