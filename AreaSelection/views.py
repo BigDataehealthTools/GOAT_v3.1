@@ -28,9 +28,17 @@ from django.db import connection # Used to connect with the database
 from bokeh.models import Plot
 from bokeh.embed import components
 from bokeh.resources import Resources
-from bokeh.plotting import figure, output_file, show, ColumnDataSource
-from bokeh.models import TapTool, HoverTool, BoxSelectTool, BoxZoomTool, CrosshairTool, WheelZoomTool, ResizeTool, ResetTool, PanTool, PreviewSaveTool
+from bokeh.plotting import figure, output_file, show, ColumnDataSource, gridplot
+from bokeh.models import TapTool, HoverTool, BoxSelectTool, BoxZoomTool, CrosshairTool, WheelZoomTool, ResizeTool, ResetTool, PanTool
+from bokeh.models.glyphs import Rect
 from bokeh.resources import CDN
+
+from bokeh.models.layouts import HBox
+import copy
+
+
+from bokeh.models.widgets.groups import CheckboxGroup
+from bokeh.io import output_file, show, hplot
 
 #--- Pandas ---#
 import pandas as pandas
@@ -49,7 +57,115 @@ import json
 
 # Create your views here.
 
-def getAreaSelectionData(position_min, position_max, chromosome, phenotype):
+
+def areaSelection(request, chromosome, position, phenotype, userWidth, userHeight):
+    print request, chromosome, position, phenotype
+
+    chrBoundaries = getChromosomeBoundaries()
+    jsonChrBoundaries = buildJsonData(chrBoundaries)
+
+    validRsids = fetchValidRsids([
+        "rs33333",
+        "rs2558128",
+        "rs2319227",
+        "rs1177257"
+    ])
+    jsonValidRsids = buildJsonData(validRsids)
+
+    print "1"
+    graphScript, div = generateGenomeViewer(chrBoundaries, validRsids, int(userWidth), int(userHeight))
+    print "2"
+
+    response = json.dumps({
+            'div': str(div),
+            'script': str(graphScript),
+            'data' : jsonValidRsids
+        },
+        sort_keys=True,
+        indent=4,
+        separators=(',', ': ')
+    )
+
+    print "3"
+
+    return HttpResponse(response)
+
+def getChromosomeBoundaries():
+    #We query the database for min and max positions for each chromosome
+    sqlQuery = "SELECT chromosome, MIN(position) as min, MAX(position) as max FROM marqueurs GROUP BY chromosome;"
+    chrBoundaries = connect.fetchData(sqlQuery)
+    return chrBoundaries
+
+def fetchValidRsids(rsids):
+    print "rsids"
+    print rsids
+    print ','.join(map(str, rsids))
+    #We query all rows where we have a data match
+    sqlQuery = 'SELECT * FROM marqueurs WHERE nom in ("' + '","'.join(map(str, rsids)) + '");'
+    validRsids = connect.fetchData(sqlQuery)
+    return validRsids
+
+def buildJsonData(data):
+    jsonData = data.to_json(orient='records')#json table
+    return jsonData
+
+def generateGenomeViewer(chrBoundaries, validRsids, userWidth, userHeight):
+    print "11"
+    source = ColumnDataSource(validRsids)# SOURCE DATA FOR BOKEH PLOT
+    print "12"
+
+    TOOLS = [HoverTool(
+        names=["rsid"],
+        tooltips=[
+        ("Rsid", "@nom"),
+        ("Chromosome", "@chromosome"),
+        ("Position","@position")
+        ]
+    ), CrosshairTool(), WheelZoomTool(), BoxSelectTool(), BoxZoomTool(), ResizeTool(), ResetTool(), PanTool(), TapTool()]
+
+    print "13"
+    stringLegend = "Positions max et min"
+    plot = figure(
+                webgl=True,
+                tools=TOOLS,
+                x_axis_label='Chromosome',
+                y_axis_label='Position',
+                plot_width=userWidth,
+                plot_height=userHeight,
+                x_range=(-1,23),
+                y_range=(0,250000000)
+            )
+
+    checkbox_button_group = CheckboxGroup(
+        labels=["Option 1", "Option 2", "Option 3"], active=[0, 1])
+
+    print "14"
+    # Shows a little square for every matched rsid. A tooltip is available for the square.
+    plot.square('chromosome', 'position', name="rsid", color="#000000", source=source, size=18, legend='Matched rsid')
+    print "15"
+
+
+    # Show rectangles representing the chromosomes
+    jsonChrBoundaries = buildJsonData(chrBoundaries)
+    jsonChrBoundaries = json.loads(jsonChrBoundaries)
+    for boundary in jsonChrBoundaries:
+        plot.rect(x=boundary['chromosome'],
+                  y=((boundary['max']-boundary['min'])/2)+boundary['min'],
+                  width=0.2,
+                  height=boundary['max']-boundary['min'])
+
+
+    plots = {u'plot':plot, u'plot2':plot}
+
+    graph, div = components(plots, CDN)
+    print "16"
+
+    return graph, div
+
+
+
+
+"""def getAreaSelectionData(position_min, position_max, chromosome, phenotype):
     #We query the database for the relevant snps around our selected position
 
     sqlQuery = "select distinct a.rs_id_assoc , a.chromosome,a.pos,a.info_assoc,a.pvalue_assoc,a.allele_A,a.allele_B,a.cohort_AA,a.cohort_BB, a.cohort_AB, a.beta_assoc,a.maf, a.all_OR,xp.covariates,p.Risk_on_rise,dat.name from assoc a join experiment xp on a.experiment=xp.idexperiment join dataset dat on xp.dataset=dat.iddataset join phenotypes  p  on xp.phenotype=p.idphenotypes where p.nom='"+phenotype+"' and a.chromosome="+chromosome+" limit 1000000;"
@@ -257,10 +373,12 @@ def buildAreaSelectionData(data):
     data = data[['rs_ID', 'Chr', 'Position', 'GeneBefore', 'Gene', 'GeneAfter', 'Region','P-value', 'Imputed', 'Allele A', 'Allele B', 'Allele\nmineure','risk_allele','risk_af','risk_allele_beta', 'Cohort', 'dbSNP', 'GWAS_Catalog', 'Genecards']]
 
     jsonData = data.to_json(orient='records')#json table
-    return jsonData
+    return jsonData"""
 
+
+"""
 # Area Selection
-def areaSelection(request, chromosome, position, phenotype, userWidth, userHeight):
+def areaSelectionBCK(request, chromosome, position, phenotype, userWidth, userHeight):
     print request, chromosome, position, phenotype
 
     #Temporary, we set the position here. Since it's ALWAYS THE F****** SAME, we'll store in directly in the database.
@@ -284,6 +402,19 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
     graphScript, div = generateAreaSelection(snps, int(userWidth), int(userHeight), position_min, position_max)
 
     snps = snps.to_json(orient='records')
+
+    print "====SNPS===="
+    print snps
+
+    print "====JSON DATA===="
+    print jsonData
+
+    print "====DIV===="
+    print div
+
+    print "====GRAPHSCRIPT===="
+    print graphScript
+
     response = json.dumps({
             'div': str(div),
             'script': str(graphScript),
@@ -294,3 +425,4 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
         separators=(',', ': ')
     )
     return HttpResponse(response)
+"""
