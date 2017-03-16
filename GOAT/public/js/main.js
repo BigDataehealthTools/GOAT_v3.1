@@ -33297,6 +33297,18 @@ var Base = React.createClass({
         });
         break;
 
+      case "sendHeaders":
+        console.log("sendHeaders");
+        console.log(data);
+        this.setState({
+          appState: "UploadFile",
+          snps: [],
+          rsid: data[0],
+          chr: data[1],
+          pos: data[2]
+        });
+        break;
+
       case "manhattan":
         console.log(data);
         this.setState({
@@ -33360,7 +33372,7 @@ var Base = React.createClass({
         break;
 
       case "UploadFile":
-        return React.createElement(UploadFilePage, null);
+        return React.createElement(UploadFilePage, { rsid: this.state.rsid, chr: this.state.chr, pos: this.state.pos });
       case "Manhattan":
         return React.createElement(ManhattanPage, { 'function': this.state.function, div: this.state.div });
         break;
@@ -35906,45 +35918,171 @@ under the License.*/
 var React = require('react');
 var Reflux = require('reflux');
 var Dropzone = require('react-dropzone');
-
-//Sub Components
-var FormPanel = require('./Panels/FormPanel.jsx');
-var PhenotypesTable = require('./Tables/PhenotypesTable.jsx');
+var AreaSelectionActions = require('../reflux/AreaSelectionActions.jsx');
 
 //Component
 var UploadFilePage = React.createClass({
-  displayName: 'UploadFilePage',
+    displayName: 'UploadFilePage',
 
-  onDrop: function (acceptedFiles, rejectedFiles) {
-    console.log('Accepted files: ', acceptedFiles);
-    console.log('Rejected files: ', rejectedFiles);
-  },
+    getInitialState: function () {
+        return {
+            rsid_header: 'rsid',
+            chromosome_header: 'chromosome',
+            position_header: 'position'
+        };
+    },
 
-  render: function () {
-    return React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'h1',
-        null,
-        'Upload file'
-      ),
-      React.createElement(
-        Dropzone,
-        { onDrop: this.onDrop },
-        React.createElement(
-          'div',
-          null,
-          'Try dropping some files here, or click to select files to upload.'
-        )
-      )
-    );
-  }
+    OnSelectRsidChange: function (e) {
+        this.setState({ rsid_header: e.target.value });
+    },
+
+    OnSelectChromosomeChange: function (e) {
+        this.setState({ chromosome_header: e.target.value });
+    },
+
+    OnSelectPositionChange: function (e) {
+        this.setState({ position_header: e.target.value });
+    },
+
+    onDrop: function (files) {
+        this.setState({ file: files[0] });
+    },
+
+    onOpenClick: function () {
+        this.refs.dropzone.open();
+    },
+
+    onSubmit: function (e) {
+        e.preventDefault();
+        AreaSelectionActions.extractHeader(this.state.file);
+    },
+
+    OnHandleFile: function (e) {
+        e.preventDefault();
+
+        AreaSelectionActions.handleFile(this.state.file, this.state.rsid_header, this.state.chromosome_header, this.state.position_header);
+    },
+
+    render: function () {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'h1',
+                null,
+                'Upload file'
+            ),
+            React.createElement(
+                Dropzone,
+                { ref: 'dropzone', onDrop: this.onDrop },
+                React.createElement(
+                    'div',
+                    null,
+                    'Drag and drop to upload a file.'
+                )
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'p',
+                    null,
+                    'rsId'
+                ),
+                React.createElement(
+                    'select',
+                    { id: 'dropdown_rsid', value: this.state.rsid_header, onChange: this.OnSelectRsidChange },
+                    React.createElement(
+                        'option',
+                        { value: this.props.rsid },
+                        this.props.rsid
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.chr },
+                        this.props.chr
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.pos },
+                        this.props.pos
+                    )
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'chromosome'
+                ),
+                React.createElement(
+                    'select',
+                    { id: 'dropdown_chromosome', value: this.state.chromosome_header, onChange: this.OnSelectChromosomeChange },
+                    React.createElement(
+                        'option',
+                        { value: this.props.rsid },
+                        this.props.rsid
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.chr },
+                        this.props.chr
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.pos },
+                        this.props.pos
+                    )
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'position'
+                ),
+                React.createElement(
+                    'select',
+                    { id: 'dropdown_position', value: this.state.position_header, onChange: this.OnSelectPositionChange },
+                    React.createElement(
+                        'option',
+                        { value: this.props.rsid },
+                        this.props.rsid
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.chr },
+                        this.props.chr
+                    ),
+                    React.createElement(
+                        'option',
+                        { value: this.props.pos },
+                        this.props.pos
+                    )
+                )
+            ),
+            React.createElement(
+                'button',
+                { type: 'button', onClick: this.onOpenClick },
+                'Upload'
+            ),
+            React.createElement(
+                'button',
+                { onClick: this.onSubmit, type: 'submit', id: 'submitAS' },
+                'Submit'
+            ),
+            React.createElement(
+                'p',
+                null,
+                React.createElement(
+                    'button',
+                    { type: 'button', onClick: this.OnHandleFile },
+                    'Area selection'
+                )
+            )
+        );
+    }
 });
 
 module.exports = UploadFilePage;
 
-},{"./Panels/FormPanel.jsx":270,"./Tables/PhenotypesTable.jsx":278,"react":224,"react-dropzone":71,"reflux":240}],282:[function(require,module,exports){
+},{"../reflux/AreaSelectionActions.jsx":283,"react":224,"react-dropzone":71,"reflux":240}],282:[function(require,module,exports){
 /*Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -36038,7 +36176,7 @@ under the License.*/
 
 var Reflux = require('reflux');
 
-var Actions = Reflux.createActions(['queryParams', 'getAreaSelection', 'uploadFile']);
+var Actions = Reflux.createActions(['queryParams', 'getAreaSelection', 'uploadFile', 'extractHeader', 'handleFile', 'getGenomeViewer']);
 
 module.exports = Actions;
 
@@ -36076,6 +36214,11 @@ var AreaSelectionStore = Reflux.createStore({
       phenotype: this.phenotype
     }]);
   },
+
+  sendHeaders: function (headers) {
+    this.trigger('sendHeaders', [headers[0], headers[1], headers[2]]);
+  },
+
   queryParams: function () {
     var store = this;
     var xhr = new XMLHttpRequest();
@@ -36086,7 +36229,7 @@ var AreaSelectionStore = Reflux.createStore({
         store.trigger('areaSelectionQueryParams', store.phenotypes);
       } else {
         console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
-      };
+      }
     };
     xhr.send();
   },
@@ -36123,7 +36266,7 @@ var AreaSelectionStore = Reflux.createStore({
   uploadFile: function () {
     var store = this;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', encodeURI("/phenotypes", true));
+    xhr.open('GET', encodeURI("/uploadFile", true));
     xhr.onload = function () {
       if (xhr.status == 200) {
         store.trigger('uploadFile');
@@ -36132,7 +36275,49 @@ var AreaSelectionStore = Reflux.createStore({
       };
     };
     xhr.send();
+  },
+
+  extractHeader: function (file) {
+    var store = this;
+    var xhr = new XMLHttpRequest();
+
+    var data = new FormData();
+    data.append('file', file);
+
+    xhr.open('POST', encodeURI("/extractHeader/"), true);
+    xhr.onload = function () {
+      if (xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        store.sendHeaders(json.headers);
+      } else {
+        console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
+      }
+    };
+    xhr.send(data);
+  },
+
+  handleFile: function (file, rsid_header, chromosome_header, position_header) {
+    var store = this;
+    var xhr = new XMLHttpRequest();
+
+    var data = new FormData();
+    data.append('file', file);
+    data.append('rsid_header', rsid_header);
+    data.append('chromosome_header', chromosome_header);
+    data.append('position_header', position_header);
+
+    xhr.open('POST', encodeURI("/handleFile/"), true);
+    xhr.onload = function () {
+      if (xhr.status == 200) {
+        //var json = JSON.parse(xhr.responseText);
+        //store.sendHeaders(json.headers);
+      } else {
+        console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
+      }
+    };
+    xhr.send(data);
   }
+
 });
 
 module.exports = AreaSelectionStore;

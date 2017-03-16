@@ -36,6 +36,15 @@ var AreaSelectionStore = Reflux.createStore({
       }
     ]);
   },
+
+  sendHeaders : function(headers){
+    this.trigger('sendHeaders', [
+        headers[0],
+        headers[1],
+        headers[2]
+    ]);
+  },
+
   queryParams : function(){
     var store = this;
     var xhr = new XMLHttpRequest();
@@ -46,7 +55,7 @@ var AreaSelectionStore = Reflux.createStore({
          store.trigger('areaSelectionQueryParams', store.phenotypes);
       }else{
         console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
-      };
+      }
     };
     xhr.send();
   },
@@ -80,19 +89,61 @@ var AreaSelectionStore = Reflux.createStore({
     };
     xhr.send();
   },
-    uploadFile : function(){
+  uploadFile : function(){
       var store = this;
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', encodeURI("/phenotypes", true));
+      xhr.open('GET', encodeURI("/uploadFile", true));
       xhr.onload = function(){
         if(xhr.status==200){
-           store.trigger('uploadFile');
+            store.trigger('uploadFile');
         } else {
           console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
         };
       };
       xhr.send();
-    }
+  },
+
+  extractHeader : function(file) {
+      var store = this;
+      var xhr = new XMLHttpRequest();
+
+      var data = new FormData();
+      data.append('file', file);
+
+      xhr.open('POST', encodeURI("/extractHeader/"), true);
+      xhr.onload = function() {
+        if (xhr.status==200) {
+            var json = JSON.parse(xhr.responseText);
+            store.sendHeaders(json.headers);
+        } else {
+          console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
+        }
+      };
+      xhr.send(data);
+  },
+
+  handleFile : function(file, rsid_header, chromosome_header, position_header) {
+      var store = this;
+      var xhr = new XMLHttpRequest();
+
+      var data = new FormData();
+      data.append('file', file);
+      data.append('rsid_header', rsid_header);
+      data.append('chromosome_header', chromosome_header);
+      data.append('position_header', position_header);
+
+      xhr.open('POST', encodeURI("/handleFile/"), true);
+      xhr.onload = function() {
+        if (xhr.status==200) {
+            //var json = JSON.parse(xhr.responseText);
+            //store.sendHeaders(json.headers);
+        } else {
+          console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
+        }
+      };
+      xhr.send(data);
+  }
+
 });
 
 module.exports = AreaSelectionStore;

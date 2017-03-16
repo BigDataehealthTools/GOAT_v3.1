@@ -45,5 +45,8 @@ urlpatterns = [
     url(r'^div', bokehGOAT.getManhattanDiv),
     url(r'^phenotypes/', phenotypes.get),
     url(r'^uploadFile/', AreaSelection.uploadFile),
+    url(r'^extractHeader/', AreaSelection.extractHeader),
+    url(r'^handleFile/', AreaSelection.handleFile),
+    url(r'^genomeViewer/(?P<rsID>\w{0,50})/(?P<position>[0-9]{0,50})/(?P<chromosome>[0-9]{0,2})', AreaSelection.genomeViewer),
     url(r'^admin/', admin.site.urls),
 ] +static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

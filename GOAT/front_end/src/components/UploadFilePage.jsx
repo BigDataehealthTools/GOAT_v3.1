@@ -22,28 +22,99 @@ under the License.*/
 var React = require('react');
 var Reflux = require('reflux');
 var Dropzone = require('react-dropzone');
-
-//Sub Components
-var FormPanel = require('./Panels/FormPanel.jsx');
-var PhenotypesTable = require('./Tables/PhenotypesTable.jsx');
+var AreaSelectionActions = require('../reflux/AreaSelectionActions.jsx');
 
 //Component
 var UploadFilePage = React.createClass({
-  onDrop: function (acceptedFiles, rejectedFiles) {
-      console.log('Accepted files: ', acceptedFiles);
-      console.log('Rejected files: ', rejectedFiles);
-  },
+    getInitialState:function() {
+        return {
+            rsid_header: 'rsid',
+            chromosome_header: 'chromosome',
+            position_header: 'position'
+        };
+    },
 
-  render : function(){
-    return (
-      <div>
-        <h1>Upload file</h1>
-        <Dropzone onDrop={this.onDrop}>
-          <div>Try dropping some files here, or click to select files to upload.</div>
-        </Dropzone>
-      </div>
-    );
-  }
+    OnSelectRsidChange:function(e) {
+        this.setState({ rsid_header:e.target.value });
+    },
+
+    OnSelectChromosomeChange:function(e) {
+        this.setState({ chromosome_header:e.target.value });
+    },
+
+    OnSelectPositionChange:function(e) {
+        this.setState({ position_header:e.target.value });
+    },
+
+    onDrop: function (files) {
+      this.setState({ file : files[0]});
+    },
+
+    onOpenClick: function () {
+      this.refs.dropzone.open();
+    },
+
+    onSubmit : function(e) {
+        e.preventDefault();
+        AreaSelectionActions.extractHeader(this.state.file);
+    },
+
+    OnHandleFile : function(e) {
+        e.preventDefault();
+
+        AreaSelectionActions.handleFile(
+            this.state.file,
+            this.state.rsid_header,
+            this.state.chromosome_header,
+            this.state.position_header
+        );
+    },
+
+    render : function() {
+        return (
+          <div>
+            <h1>Upload file</h1>
+            <Dropzone ref="dropzone" onDrop={this.onDrop} >
+                <div>Drag and drop to upload a file.</div>
+            </Dropzone>
+
+            <div>
+                <p>rsId</p>
+                <select id="dropdown_rsid" value={this.state.rsid_header} onChange={this.OnSelectRsidChange}>
+                    <option value={this.props.rsid}>{this.props.rsid}</option>
+                    <option value={this.props.chr}>{this.props.chr}</option>
+                    <option value={this.props.pos}>{this.props.pos}</option>
+                </select>
+
+                <p>chromosome</p>
+                <select id="dropdown_chromosome" value={this.state.chromosome_header} onChange={this.OnSelectChromosomeChange}>
+                    <option value={this.props.rsid}>{this.props.rsid}</option>
+                    <option value={this.props.chr}>{this.props.chr}</option>
+                    <option value={this.props.pos}>{this.props.pos}</option>
+                </select>
+
+                <p>position</p>
+                <select id="dropdown_position" value={this.state.position_header} onChange={this.OnSelectPositionChange}>
+                    <option value={this.props.rsid}>{this.props.rsid}</option>
+                    <option value={this.props.chr}>{this.props.chr}</option>
+                    <option value={this.props.pos}>{this.props.pos}</option>
+                </select>
+            </div>
+
+            <button type="button" onClick={this.onOpenClick}>
+                Upload
+            </button>
+
+            <button onClick={this.onSubmit} type="submit" id="submitAS">Submit</button>
+
+            <p>
+                <button type="button" onClick={this.OnHandleFile}>
+                    Area selection
+                </button>
+            </p>
+          </div>
+        );
+    }
 });
 
 module.exports = UploadFilePage;

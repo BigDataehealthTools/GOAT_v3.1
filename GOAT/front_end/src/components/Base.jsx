@@ -103,6 +103,18 @@ var Base = React.createClass({
           });
           break;
 
+      case "sendHeaders":
+        console.log("sendHeaders");
+        console.log(data);
+          this.setState({
+            appState : "UploadFile",
+            snps : [],
+            rsid : data[0],
+            chr : data[1],
+            pos : data[2]
+          });
+          break;
+
       case "manhattan" :
         console.log(data);
         this.setState({
@@ -166,7 +178,7 @@ var Base = React.createClass({
         break;
 
       case "UploadFile":
-        return <UploadFilePage />
+        return <UploadFilePage rsid={this.state.rsid} chr={this.state.chr} pos={this.state.pos}/>
       case "Manhattan":
         return <ManhattanPage  function={this.state.function} div={this.state.div}/>
         break;

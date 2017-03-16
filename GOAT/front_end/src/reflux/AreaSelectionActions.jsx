@@ -23,7 +23,10 @@ var Reflux = require('reflux');
 var Actions = Reflux.createActions([
   'queryParams',
   'getAreaSelection',
-  'uploadFile'
+  'uploadFile',
+  'extractHeader',
+  'handleFile',
+  'getGenomeViewer'
 ]);
 
 module.exports = Actions;

@@ -22,6 +22,7 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.db import connection # Used to connect with the database
 
 #--- Bokeh ---#
@@ -38,6 +39,10 @@ import numpy as numpy
 
 #--- Regex ---#
 import re as regex
+
+#--- CSV reader and mapper ---#
+import csv
+import csvmapper
 
 #--- Tools ---#
 from Tools import connect
@@ -296,5 +301,52 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
     )
     return HttpResponse(response)
 
-def uploadFile():
+def uploadFile(request):
+    return HttpResponse()
+
+def extractHeader(request):
+    f = request.FILES['file']
+
+    reader = csv.reader(f)
+
+    headers = reader.next()
+
+    response = json.dumps({'headers': headers})
+
+    f.close()
+
+    return HttpResponse(response)
+
+def handleFile(request):
+    f = request.FILES['file']
+    jsonfile = open('testtt.json', 'w')
+
+    mapper = csvmapper.DictMapper([
+        [
+            { request.POST['rsid_header'] : 'rsid' } ,
+            { request.POST['position_header'] : 'position' },
+            { request.POST['chromosome_header'] : 'chromosome' }
+        ]
+    ])
+
+    parser = csvmapper.CSVParser(f, hasHeader=True)
+
+    converter = csvmapper.JSONConverter(parser)
+    print converter.doConvert(pretty=True)
+
+
+    #fieldnames = (request.POST['rsid_header'], request.POST['chromosome_header'], request.POST['position_header'])
+
+    #fieldnames = ('rsid', 'chromosome', 'position')
+
+    #reader = csv.DictReader(f, fieldnames)
+
+    #for row in reader:
+    #    json.dump(row, jsonfile)
+    #    jsonfile.write('\n')
+
+
+    return HttpResponse()
+
+def genomeViewer(request, rsId, position, chromosome):
     return HttpResponse()
