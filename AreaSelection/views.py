@@ -154,10 +154,7 @@ def generateGenomeViewer(chrBoundaries, validRsids, userWidth, userHeight):
                   width=0.2,
                   height=boundary['max']-boundary['min'])
 
-
-    plots = {u'plot':plot, u'plot2':plot}
-
-    graph, div = components(plots, CDN)
+    graph, div = components(plot, CDN)
     print "16"
 
     return graph, div
