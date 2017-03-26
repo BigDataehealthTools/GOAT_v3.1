@@ -19,36 +19,148 @@ under the License.*/
 // mail : victor.dupuy@hei.fr
 
 //Dependencies
+require("amcharts3-export");
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ASTable = require('./Tables/ASTable.jsx');
+var AmCharts = require("amcharts3-react");
 
 //Sub-Components
 
 //Component
 var AreaselectionPage = React.createClass({
-  componentDidMount : function(){
-    eval(this.props.function.substring(32,result.script.length-9));
-  },
-  render : function(){
-    var titleStyle = {
-      textAlign : "center",
-      color : "#ededed"
-    }
 
-    return(
-      <div>
-        <h1 style={titleStyle}>Area Selection for {this.props.phenotype} on Chromosome : {this.props.chromosome}</h1>
-        <h2 style={titleStyle}>After you clicked on {this.props.rsID}</h2>
-        <div
-          id={$.parseXML(this.props.div).firstChild.id}
-          className = {$.parseXML(this.props.div).firstChild.className}
-          >
-        </div>
-        <ASTable snps={this.props.snps}/>
-      </div>
-    )
-  }
+  render : function() {
+
+      var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
+      var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
+
+      //console.log("jsonChrBoundaries");
+      //console.log(jsonChrBoundaries);
+      //console.log("jsonValidRsids");
+      //console.log(jsonValidRsids);
+
+
+
+      var dataProvider = [];
+
+      for (var i=0; i<jsonChrBoundaries.length; i++) {
+        dataProvider.push({
+          "chromosome": jsonChrBoundaries[i].chromosome,
+          "min": jsonChrBoundaries[i].min,
+          "max": jsonChrBoundaries[i].max,
+          "phenotype": i
+        });
+      }
+
+
+
+      var graphs = [{
+        "colorField": "color",
+        "fillAlphas": 0.8,
+        "lineColor": "#00bfff",
+        "openField": "min",
+        "type": "column",
+        "valueField": "max"
+      }];
+
+      for (var i=0; i<jsonValidRsids.length; i++) {
+        dataProvider[jsonValidRsids[i].chromosome][jsonValidRsids[i].nom] = jsonValidRsids[i].position;
+
+        graphs.push({
+            "title": jsonValidRsids[i].nom,
+            "bullet": "square",
+            "bulletColor": "#ff1144",
+            "bulletSize": "15",
+            "valueField": jsonValidRsids[i].nom,
+            "balloonText":
+              "nom : " + jsonValidRsids[i].nom + "\n" +
+              "chromosome : " + jsonValidRsids[i].chromosome + "\n" +
+              "position : " + jsonValidRsids[i].position + "\n" +
+              "gene_before : " + jsonValidRsids[i].gene_before + "\n" +
+              "gene_after : " + jsonValidRsids[i].gene_after + "\n" +
+              "idgenes : " + jsonValidRsids[i].idgenes + "\n" +
+              "idmarqueurs : " + jsonValidRsids[i].idmarqueurs,
+            "phenotype" : i,
+            "mutation" : i+1
+
+        });
+      }
+
+
+
+
+
+
+      function handleLegendClick( graph ) {
+        var chart = graph.chart;
+
+
+
+        for( var i = 0; i < chart.graphs.length; i++ ) {
+          if ( graph.id == chart.graphs[i].id )
+            if (chart.graphs[i].hidden) {
+              chart.showGraph(chart.graphs[i]);
+            } else {
+              chart.hideGraph(chart.graphs[i]);
+            }
+        }
+
+        // return false so that default action is canceled
+        return false;
+      }
+
+
+
+
+
+
+      //console.log("dataprovider");
+      //console.log(dataProvider);
+      //console.log("graphs");
+      //console.log(graphs);
+
+      return React.createElement(AmCharts.React, {
+          "libs": { "path": "node_modules/amcharts3-export/libs/" },
+          "type": "serial",
+          "theme": "light",
+          "thousandsSeparator": " ",
+
+          "legend": {
+            "position": "right",
+            "horizontalGap": 10,
+            "useGraphSettings": true,
+            "markerSize": 10,
+            "valueText": "[[value]]",
+            "clickMarker": handleLegendClick,
+            "clickLabel": handleLegendClick
+          },
+
+          "dataProvider": dataProvider,
+
+          "valueAxes": [ {
+            "axisAlpha": 0,
+            "gridAlpha": 0.1,
+            "position": "left"
+          } ],
+
+          "startDuration": 1,
+          "graphs": graphs,
+
+
+
+          "columnWidth": 0.4,
+          "categoryField": "chromosome",
+          "categoryAxis": {
+            "gridPosition": "start",
+            "axisAlpha": 0,
+            "gridAlpha": 0.1
+          },
+          "export": {
+            "enabled": true
+          }
+        });
+      }
 });
 
-module.exports= AreaselectionPage;
+module.exports = AreaselectionPage;

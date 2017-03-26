@@ -17,6 +17,9 @@
   "author": "Victor Dupuy",
   "license": "Apache v2",
   "dependencies": {
+    "amcharts3": "amcharts/amcharts3",
+    "amcharts3-react": "amcharts/amcharts3-react",
+    "amcharts3-export": "amcharts/export",
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
     "d3": "^3.5.14",
