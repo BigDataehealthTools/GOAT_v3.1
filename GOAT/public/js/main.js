@@ -10341,12 +10341,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _inherits(Dropzone, _React$Component);
 	
 	  _createClass(Dropzone, null, [{
-	    key: 'renderChildren',
-	    value: function renderChildren(children, isDragActive, isDragReject) {
-	      if (typeof children === 'function') {
-	        return children({ isDragActive: isDragActive, isDragReject: isDragReject });
-	      }
-	      return children;
+	    key: 'onDocumentDragOver',
+	    value: function onDocumentDragOver(e) {
+	      // allow the entire document to be a drag target
+	      e.preventDefault();
 	    }
 	  }]);
 	
@@ -10355,7 +10353,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var _this = _possibleConstructorReturn(this, (Dropzone.__proto__ || Object.getPrototypeOf(Dropzone)).call(this, props, context));
 	
+	    _this.renderChildren = function (children) {
+	      if (typeof children === 'function') {
+	        return children(_this.state);
+	      }
+	      return children;
+	    };
+	
 	    _this.onClick = _this.onClick.bind(_this);
+	    _this.onDocumentDrop = _this.onDocumentDrop.bind(_this);
 	    _this.onDragStart = _this.onDragStart.bind(_this);
 	    _this.onDragEnter = _this.onDragEnter.bind(_this);
 	    _this.onDragLeave = _this.onDragLeave.bind(_this);
@@ -10363,9 +10369,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _this.onDrop = _this.onDrop.bind(_this);
 	    _this.onFileDialogCancel = _this.onFileDialogCancel.bind(_this);
 	    _this.fileAccepted = _this.fileAccepted.bind(_this);
+	    _this.setRef = _this.setRef.bind(_this);
 	    _this.isFileDialogActive = false;
 	    _this.state = {
-	      isDragActive: false
+	      isDragActive: false,
+	      acceptedFiles: [],
+	      rejectedFiles: []
 	    };
 	    return _this;
 	  }
@@ -10373,15 +10382,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Dropzone, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.enterCounter = 0;
+	      var preventDropOnDocument = this.props.preventDropOnDocument;
+	
+	      this.dragTargets = [];
+	
+	      if (preventDropOnDocument) {
+	        document.addEventListener('dragover', Dropzone.onDocumentDragOver, false);
+	        document.addEventListener('drop', this.onDocumentDrop, false);
+	      }
 	      // Tried implementing addEventListener, but didn't work out
 	      document.body.onfocus = this.onFileDialogCancel;
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
+	      var preventDropOnDocument = this.props.preventDropOnDocument;
+	
+	      if (preventDropOnDocument) {
+	        document.removeEventListener('dragover', Dropzone.onDocumentDragOver);
+	        document.removeEventListener('drop', this.onDocumentDrop);
+	      }
 	      // Can be replaced with removeEventListener, if addEventListener works
 	      document.body.onfocus = null;
+	    }
+	  }, {
+	    key: 'onDocumentDrop',
+	    value: function onDocumentDrop(e) {
+	      if (this.node.contains(e.target)) {
+	        // if we intercepted an event for our instance, let it propagate down to the instance's onDrop handler
+	        return;
+	      }
+	      e.preventDefault();
+	      this.dragTargets = [];
 	    }
 	  }, {
 	    key: 'onDragStart',
@@ -10396,7 +10428,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      e.preventDefault();
 	
 	      // Count the dropzone and any children that are entered.
-	      ++this.enterCounter;
+	      if (this.dragTargets.indexOf(e.target) === -1) {
+	        this.dragTargets.push(e.target);
+	      }
 	
 	      var allFilesAccepted = this.allFilesAccepted((0, _getDataTransferItems2.default)(e, this.props.multiple));
 	
@@ -10429,10 +10463,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'onDragLeave',
 	    value: function onDragLeave(e) {
+	      var _this2 = this;
+	
 	      e.preventDefault();
 	
-	      // Only deactivate once the dropzone and all children was left.
-	      if (--this.enterCounter > 0) {
+	      // Only deactivate once the dropzone and all children have been left.
+	      this.dragTargets = this.dragTargets.filter(function (el) {
+	        return el !== e.target && _this2.node.contains(el);
+	      });
+	      if (this.dragTargets.length > 0) {
 	        return;
 	      }
 	
@@ -10448,7 +10487,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'onDrop',
 	    value: function onDrop(e) {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      var _props = this.props,
 	          onDrop = _props.onDrop,
@@ -10465,7 +10504,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      e.preventDefault();
 	
 	      // Reset the counter along with the drag on a drop.
-	      this.enterCounter = 0;
+	      this.dragTargets = [];
 	      this.isFileDialogActive = false;
 	
 	      fileList.forEach(function (file) {
@@ -10473,7 +10512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          file.preview = window.URL.createObjectURL(file); // eslint-disable-line no-param-reassign
 	        }
 	
-	        if (_this2.fileAccepted(file) && _this2.fileMatchSize(file)) {
+	        if (_this3.fileAccepted(file) && _this3.fileMatchSize(file)) {
 	          acceptedFiles.push(file);
 	        } else {
 	          rejectedFiles.push(file);
@@ -10495,7 +10534,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // Reset drag state
 	      this.setState({
 	        isDragActive: false,
-	        isDragReject: false
+	        isDragReject: false,
+	        acceptedFiles: acceptedFiles,
+	        rejectedFiles: rejectedFiles
 	      });
 	    }
 	  }, {
@@ -10535,9 +10576,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, {
+	    key: 'setRef',
+	    value: function setRef(ref) {
+	      this.node = ref;
+	    }
+	  }, {
 	    key: 'fileAccepted',
 	    value: function fileAccepted(file) {
-	      return (0, _attrAccept2.default)(file, this.props.accept);
+	      // Firefox versions prior to 53 return a bogus MIME type for every file drag, so dragovers with
+	      // that MIME type will always be accepted
+	      return file.type === 'application/x-moz-file' || (0, _attrAccept2.default)(file, this.props.accept);
 	    }
 	  }, {
 	    key: 'fileMatchSize',
@@ -10559,7 +10607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this3 = this;
+	      var _this4 = this;
 	
 	      var _props3 = this.props,
 	          accept = _props3.accept,
@@ -10625,7 +10673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        style: { display: 'none' },
 	        multiple: supportMultiple && multiple,
 	        ref: function ref(el) {
-	          return _this3.fileInputEl = el;
+	          return _this4.fileInputEl = el;
 	        }, // eslint-disable-line
 	        onChange: this.onDrop
 	      };
@@ -10635,7 +10683,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	
 	      // Remove custom properties before passing them to the wrapper div element
-	      var customProps = ['acceptedFiles', 'disablePreview', 'disableClick', 'onDropAccepted', 'onDropRejected', 'onFileDialogCancel', 'maxSize', 'minSize'];
+	      var customProps = ['acceptedFiles', 'preventDropOnDocument', 'disablePreview', 'disableClick', 'onDropAccepted', 'onDropRejected', 'onFileDialogCancel', 'maxSize', 'minSize'];
 	      var divProps = _extends({}, props);
 	      customProps.forEach(function (prop) {
 	        return delete divProps[prop];
@@ -10652,9 +10700,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onDragEnter: this.onDragEnter,
 	          onDragOver: this.onDragOver,
 	          onDragLeave: this.onDragLeave,
-	          onDrop: this.onDrop
+	          onDrop: this.onDrop,
+	          ref: this.setRef
 	        }),
-	        Dropzone.renderChildren(children, isDragActive, isDragReject),
+	        this.renderChildren(children),
 	        _react2.default.createElement('input', _extends({}, inputProps /* expand user provided inputProps first so inputAttributes override them */, inputAttributes))
 	      );
 	    }
@@ -10664,6 +10713,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react2.default.Component);
 	
 	Dropzone.defaultProps = {
+	  preventDropOnDocument: true,
 	  disablePreview: false,
 	  disableClick: false,
 	  multiple: true,
@@ -10689,6 +10739,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  activeClassName: _react2.default.PropTypes.string, // className for accepted state
 	  rejectClassName: _react2.default.PropTypes.string, // className for rejected state
 	
+	  preventDropOnDocument: _react2.default.PropTypes.bool, // If false, allow dropped items to take over the current browser window
 	  disablePreview: _react2.default.PropTypes.bool, // Enable/disable preview generation
 	  disableClick: _react2.default.PropTypes.bool, // Disallow clicking on the dropzone container to open file dialog
 	  onFileDialogCancel: _react2.default.PropTypes.func, // Provide a callback on clicking the cancel button of the file dialog
