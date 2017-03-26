@@ -135,8 +135,10 @@ var AreaSelectionStore = Reflux.createStore({
       xhr.open('POST', encodeURI("/handleFile/"), true);
       xhr.onload = function() {
         if (xhr.status==200) {
-            //var json = JSON.parse(xhr.responseText);
-            //store.sendHeaders(json.headers);
+            result = JSON.parse(xhr.responseText);
+            store.data = JSON.parse(result.data);
+            store.fireUpdate();
+
         } else {
           console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
         }
