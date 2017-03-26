@@ -122,8 +122,6 @@ def genomeViewer(data):
     jsonValidRsids = buildJsonData(validRsids)
 
     print "1"
-    graphScript, div = generateGenomeViewer(chrBoundaries, validRsids, int(userWidth), int(userHeight))
-    print "2"
 
     response = json.dumps({
             #'div': str(div),
@@ -244,6 +242,4 @@ def handleFile(request):
             'chromosome': row[request.POST['chromosome_header']]
         })
 
-    print output
-
-    return HttpResponse()
+    return genomeViewer(output)
