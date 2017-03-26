@@ -32,47 +32,111 @@ var AreaselectionPage = React.createClass({
 
   render : function() {
 
+      var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
+      var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
+
+      //console.log("jsonChrBoundaries");
+      //console.log(jsonChrBoundaries);
+      //console.log("jsonValidRsids");
+      //console.log(jsonValidRsids);
+
+
+
+      var dataProvider = [];
+
+      for (var i=0; i<jsonChrBoundaries.length; i++) {
+        dataProvider.push({
+          "chromosome": jsonChrBoundaries[i].chromosome,
+          "min": jsonChrBoundaries[i].min,
+          "max": jsonChrBoundaries[i].max,
+          "phenotype": i
+        });
+      }
+
+
+
+      var graphs = [{
+        "colorField": "color",
+        "fillAlphas": 0.8,
+        "lineColor": "#00bfff",
+        "openField": "min",
+        "type": "column",
+        "valueField": "max"
+      }];
+
+      for (var i=0; i<jsonValidRsids.length; i++) {
+        dataProvider[jsonValidRsids[i].chromosome][jsonValidRsids[i].nom] = jsonValidRsids[i].position;
+
+        graphs.push({
+            "title": jsonValidRsids[i].nom,
+            "bullet": "square",
+            "bulletColor": "#ff1144",
+            "bulletSize": "15",
+            "valueField": jsonValidRsids[i].nom,
+            "balloonText":
+              "nom : " + jsonValidRsids[i].nom + "\n" +
+              "chromosome : " + jsonValidRsids[i].chromosome + "\n" +
+              "position : " + jsonValidRsids[i].position + "\n" +
+              "gene_before : " + jsonValidRsids[i].gene_before + "\n" +
+              "gene_after : " + jsonValidRsids[i].gene_after + "\n" +
+              "idgenes : " + jsonValidRsids[i].idgenes + "\n" +
+              "idmarqueurs : " + jsonValidRsids[i].idmarqueurs,
+            "phenotype" : i,
+            "mutation" : i+1
+
+        });
+      }
+
+
+
+
+
+
+      function handleLegendClick( graph ) {
+        var chart = graph.chart;
+
+
+
+        for( var i = 0; i < chart.graphs.length; i++ ) {
+          if ( graph.id == chart.graphs[i].id )
+            if (chart.graphs[i].hidden) {
+              chart.showGraph(chart.graphs[i]);
+            } else {
+              chart.hideGraph(chart.graphs[i]);
+            }
+        }
+
+        // return false so that default action is canceled
+        return false;
+      }
+
+
+
+
+
+
+      //console.log("dataprovider");
+      //console.log(dataProvider);
+      //console.log("graphs");
+      //console.log(graphs);
+
       return React.createElement(AmCharts.React, {
           "libs": { "path": "node_modules/amcharts3-export/libs/" },
           "type": "serial",
           "theme": "light",
-          "dataProvider": [ {
-            "name": "Income A",
-            "open": 0,
-            "close": 11.13,
-            "color": "#54cb6a",
-            "balloonValue": 11.13
-          }, {
-            "name": "Income B",
-            "open": 11.13,
-            "close": 15.81,
-            "color": "#54cb6a",
-            "balloonValue": 4.68
-          }, {
-            "name": "Total Income",
-            "open": 0,
-            "close": 15.81,
-            "color": "#169b2f",
-            "balloonValue": 15.81
-          }, {
-            "name": "Expenses A",
-            "open": 12.92,
-            "close": 15.81,
-            "color": "#cc4b48",
-            "balloonValue": 2.89
-          }, {
-            "name": "Expenses B",
-            "open": 8.64,
-            "close": 12.92,
-            "color": "#cc4b48",
-            "balloonValue": 4.24
-          }, {
-            "name": "Revenue",
-            "open": 0,
-            "close": 8.64,
-            "color": "#1c8ceb",
-            "balloonValue": 11.13
-          } ],
+          "thousandsSeparator": " ",
+
+          "legend": {
+            "position": "right",
+            "horizontalGap": 10,
+            "useGraphSettings": true,
+            "markerSize": 10,
+            "valueText": "[[value]]",
+            "clickMarker": handleLegendClick,
+            "clickLabel": handleLegendClick
+          },
+
+          "dataProvider": dataProvider,
 
           "valueAxes": [ {
             "axisAlpha": 0,
@@ -81,49 +145,12 @@ var AreaselectionPage = React.createClass({
           } ],
 
           "startDuration": 1,
-          "graphs": [ {
-            "balloonText": "<span style='color:[[color]]'>[[category]]</span><br><b>$[[balloonValue]] Mln</b>",
-            "colorField": "color",
-            "fillAlphas": 0.8,
-            "labelText": "$[[balloonValue]]",
-            "lineColor": "#BBBBBB",
-            "openField": "open",
-            "type": "column",
-            "valueField": "close"
-          } ],
+          "graphs": graphs,
 
-          "trendLines": [ {
-            "dashLength": 3,
-            "finalCategory": "Income B",
-            "finalValue": 11.13,
-            "initialCategory": "Income A",
-            "initialValue": 11.13,
-            "lineColor": "#888888"
-          }, {
-            "dashLength": 3,
-            "finalCategory": "Expenses A",
-            "finalValue": 15.81,
-            "initialCategory": "Income B",
-            "initialValue": 15.81,
-            "lineColor": "#888888"
-          }, {
-            "dashLength": 3,
-            "finalCategory": "Expenses B",
-            "finalValue": 12.92,
-            "initialCategory": "Expenses A",
-            "initialValue": 12.92,
-            "lineColor": "#888888"
-          }, {
-            "dashLength": 3,
-            "finalCategory": "Revenue",
-            "finalValue": 8.64,
-            "initialCategory": "Expenses B",
-            "initialValue": 8.64,
-            "lineColor": "#888888"
-          } ],
 
-          "columnWidth": 0.6,
-          "categoryField": "name",
+
+          "columnWidth": 0.4,
+          "categoryField": "chromosome",
           "categoryAxis": {
             "gridPosition": "start",
             "axisAlpha": 0,
@@ -136,4 +163,4 @@ var AreaselectionPage = React.createClass({
       }
 });
 
-module.exports= AreaselectionPage;
+module.exports = AreaselectionPage;

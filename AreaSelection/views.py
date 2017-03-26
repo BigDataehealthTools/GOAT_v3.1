@@ -68,7 +68,13 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
         "rs33333",
         "rs2558128",
         "rs2319227",
-        "rs1177257"
+        "rs1177257",
+        "rs12403445",#chr 1
+        "rs7539261",#chr 1
+        "rs2718295",#chr 7
+        "rs6489602",#chr 12
+        "rs1402337",#chr 12
+
     ])
     jsonValidRsids = buildJsonData(validRsids)
 
@@ -77,9 +83,12 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
     print "2"
 
     response = json.dumps({
-            'div': str(div),
-            'script': str(graphScript),
-            'data' : jsonValidRsids
+            #'div': str(div),
+            #'script': str(graphScript),
+            'data' : json.dumps({
+                'jsonChrBoundaries' : jsonChrBoundaries,
+                'jsonValidRsids' : jsonValidRsids
+            })
         },
         sort_keys=True,
         indent=4,
