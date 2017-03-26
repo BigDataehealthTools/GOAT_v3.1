@@ -29,9 +29,17 @@ var UploadFilePage = React.createClass({
     getInitialState:function() {
         return {
             rsid_header: 'rsid',
-            chromosome_header: 'chromosome',
+            chromosome_header: 'chr',
             position_header: 'position'
         };
+    },
+
+    componentWillReceiveProps: function(nextProps){
+        this.setState({
+            rsid_header: nextProps.rsid,
+            chromosome_header: nextProps.chr,
+            position_header: nextProps.pos
+        });
     },
 
     OnSelectRsidChange:function(e) {

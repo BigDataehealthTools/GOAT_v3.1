@@ -318,33 +318,22 @@ def extractHeader(request):
     return HttpResponse(response)
 
 def handleFile(request):
-    f = request.FILES['file']
-    jsonfile = open('testtt.json', 'w')
+    reader = csv.DictReader(request.FILES['file'])
+    data = json.dumps([ row for row in reader ])
 
-    mapper = csvmapper.DictMapper([
-        [
-            { request.POST['rsid_header'] : 'rsid' } ,
-            { request.POST['position_header'] : 'position' },
-            { request.POST['chromosome_header'] : 'chromosome' }
-        ]
-    ])
+    output = []
 
-    parser = csvmapper.CSVParser(f, hasHeader=True)
+    for row in json.loads(data):
+        print row
+        print row[request.POST['rsid_header']]
 
-    converter = csvmapper.JSONConverter(parser)
-    print converter.doConvert(pretty=True)
+        output.append({
+            'rsid': row[request.POST['rsid_header']],
+            'position': row[request.POST['position_header']],
+            'chromosome': row[request.POST['chromosome_header']]
+        })
 
-
-    #fieldnames = (request.POST['rsid_header'], request.POST['chromosome_header'], request.POST['position_header'])
-
-    #fieldnames = ('rsid', 'chromosome', 'position')
-
-    #reader = csv.DictReader(f, fieldnames)
-
-    #for row in reader:
-    #    json.dump(row, jsonfile)
-    #    jsonfile.write('\n')
-
+    print output
 
     return HttpResponse()
 
