@@ -48,9 +48,8 @@ import numpy as numpy
 #--- Regex ---#
 import re as regex
 
-#--- CSV reader and mapper ---#
+#--- CSV reader ---#
 import csv
-import csvmapper
 
 #--- Tools ---#
 from Tools import connect
