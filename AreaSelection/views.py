@@ -65,78 +65,40 @@ import json
 def areaSelection(request, chromosome, position, phenotype, userWidth, userHeight):
     print request, chromosome, position, phenotype
 
-    chrBoundaries = getChromosomeBoundaries()
-    jsonChrBoundaries = buildJsonData(chrBoundaries)
+    data = [
+        #"rs33333",
+        {"rsid": "rs2558128", "position": "123123123", "chromosome": "4"},
+        {"rsid": "rs2319227", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs1177257", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs12403445", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs12403445", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs7539261", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs2718295", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs6489602", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs2319227", "position": "234234234", "chromosome": "4"},
+        {"rsid": "rs1402337", "position": "234234234", "chromosome": "4"}
+    ]
 
-    validRsids = fetchValidRsids([
-        "rs33333",
-        "rs2558128",
-        "rs2319227",
-        "rs1177257",
-        "rs12403445",#chr 1
-        "rs7539261",#chr 1
-        "rs2718295",#chr 7
-        "rs6489602",#chr 12
-        "rs1402337",#chr 12
-
-    ])
-    jsonValidRsids = buildJsonData(validRsids)
-
-    print "1"
-    graphScript, div = generateGenomeViewer(chrBoundaries, validRsids, int(userWidth), int(userHeight))
-    print "2"
-
-    response = json.dumps({
-            #'div': str(div),
-            #'script': str(graphScript),
-            'data' : json.dumps({
-                'jsonChrBoundaries' : jsonChrBoundaries,
-                'jsonValidRsids' : jsonValidRsids
-            })
-        },
-        sort_keys=True,
-        indent=4,
-        separators=(',', ': ')
-    )
-
-    print "3"
-
-    return HttpResponse(response)
+    return genomeViewer(data)
 
 def genomeViewer(data):
+    print data
+
+    rsidArray = [o['rsid'] for o in data]
+
     chrBoundaries = getChromosomeBoundaries()
-    jsonChrBoundaries = buildJsonData(chrBoundaries)
-
-    validRsids = fetchValidRsids([
-        "rs33333",
-        "rs2558128",
-        "rs2319227",
-        "rs1177257",
-        "rs12403445",#chr 1
-        "rs7539261",#chr 1
-        "rs2718295",#chr 7
-        "rs6489602",#chr 12
-        "rs1402337",#chr 12
-
-    ])
-    jsonValidRsids = buildJsonData(validRsids)
-
-    print "1"
+    validRsids = fetchValidRsids(rsidArray)
 
     response = json.dumps({
-            #'div': str(div),
-            #'script': str(graphScript),
-            'data' : json.dumps({
-                'jsonChrBoundaries' : jsonChrBoundaries,
-                'jsonValidRsids' : jsonValidRsids
-            })
+            'data' : {
+                'jsonChrBoundaries' : chrBoundaries,
+                'jsonValidRsids' : validRsids
+            }
         },
         sort_keys=True,
         indent=4,
         separators=(',', ': ')
     )
-
-    print "3"
 
     return HttpResponse(response)
 
@@ -144,86 +106,45 @@ def getChromosomeBoundaries():
     #We query the database for min and max positions for each chromosome
     sqlQuery = "SELECT chromosome, MIN(position) as min, MAX(position) as max FROM marqueurs GROUP BY chromosome;"
     chrBoundaries = connect.fetchData(sqlQuery)
-    return chrBoundaries
+    return buildJsonData(chrBoundaries)
 
 def fetchValidRsids(rsids):
-    print "rsids"
-    print rsids
-    print ','.join(map(str, rsids))
+    #print "rsids"
+    #print rsids
+    #print ','.join(map(str, rsids))
     #We query all rows where we have a data match
     sqlQuery = 'SELECT * FROM marqueurs WHERE nom in ("' + '","'.join(map(str, rsids)) + '");'
     validRsids = connect.fetchData(sqlQuery)
-    return validRsids
+
+    #validRsids = []
+
+    #for rsid in rsids:
+    #    sqlQuery = 'SELECT * FROM marqueurs WHERE nom="' + rsid + '";'
+    #    match = connect.fetchData(sqlQuery)
+    #    print match
+    #    j = buildJsonData(match)
+    #    print j
+
+    #    o = json.loads(j)
+    #    print o
+
+    #    validRsids.append(o)
+
+    return buildJsonData(validRsids)
 
 def buildJsonData(data):
     jsonData = data.to_json(orient='records')#json table
     return jsonData
-
-def generateGenomeViewer(chrBoundaries, validRsids, userWidth, userHeight):
-    print "11"
-    source = ColumnDataSource(validRsids)# SOURCE DATA FOR BOKEH PLOT
-    print "12"
-
-    TOOLS = [HoverTool(
-        names=["rsid"],
-        tooltips=[
-        ("Rsid", "@nom"),
-        ("Chromosome", "@chromosome"),
-        ("Position","@position")
-        ]
-    ), CrosshairTool(), WheelZoomTool(), BoxSelectTool(), BoxZoomTool(), ResizeTool(), ResetTool(), PanTool(), TapTool()]
-
-    print "13"
-    stringLegend = "Positions max et min"
-    plot = figure(
-                webgl=True,
-                tools=TOOLS,
-                x_axis_label='Chromosome',
-                y_axis_label='Position',
-                plot_width=userWidth,
-                plot_height=userHeight,
-                x_range=(-1,23),
-                y_range=(0,250000000)
-            )
-
-    checkbox_button_group = CheckboxGroup(
-        labels=["Option 1", "Option 2", "Option 3"], active=[0, 1])
-
-    print "14"
-    # Shows a little square for every matched rsid. A tooltip is available for the square.
-    plot.square('chromosome', 'position', name="rsid", color="#000000", source=source, size=18, legend='Matched rsid')
-    print "15"
-
-
-    # Show rectangles representing the chromosomes
-    jsonChrBoundaries = buildJsonData(chrBoundaries)
-    jsonChrBoundaries = json.loads(jsonChrBoundaries)
-    for boundary in jsonChrBoundaries:
-        plot.rect(x=boundary['chromosome'],
-                  y=((boundary['max']-boundary['min'])/2)+boundary['min'],
-                  width=0.2,
-                  height=boundary['max']-boundary['min'])
-
-    graph, div = components(plot, CDN)
-    print "16"
-
-    return graph, div
-
 
 def uploadFile(request):
     return HttpResponse()
 
 def extractHeader(request):
     f = request.FILES['file']
-
     reader = csv.reader(f)
-
     headers = reader.next()
-
     response = json.dumps({'headers': headers})
-
     f.close()
-
     return HttpResponse(response)
 
 def handleFile(request):
