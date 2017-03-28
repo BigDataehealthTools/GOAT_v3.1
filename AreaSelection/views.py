@@ -233,9 +233,6 @@ def handleFile(request):
     output = []
 
     for row in json.loads(data):
-        print row
-        print row[request.POST['rsid_header']]
-
         output.append({
             'rsid': row[request.POST['rsid_header']],
             'position': row[request.POST['position_header']],

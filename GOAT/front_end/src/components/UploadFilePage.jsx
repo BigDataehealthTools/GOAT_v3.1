@@ -30,15 +30,22 @@ var UploadFilePage = React.createClass({
         return {
             rsid_header: 'rsid',
             chromosome_header: 'chr',
-            position_header: 'position'
+            position_header: 'position',
+            dropzone_text: 'Drag and drop to upload a file or click here to choose your file.',
+            areaSelectionDisabled: true
         };
     },
 
     componentWillReceiveProps: function(nextProps){
+        document.getElementById("dropdown_rsid").disabled = false;
+        document.getElementById("dropdown_chromosome").disabled = false;
+        document.getElementById("dropdown_position").disabled = false;
+
         this.setState({
             rsid_header: nextProps.rsid,
             chromosome_header: nextProps.chr,
-            position_header: nextProps.pos
+            position_header: nextProps.pos,
+            areaSelectionDisabled: false
         });
     },
 
@@ -55,7 +62,10 @@ var UploadFilePage = React.createClass({
     },
 
     onDrop: function (files) {
-      this.setState({ file : files[0]});
+        this.setState({
+            file : files[0],
+            dropzone_text : files[0].name
+        });
     },
 
     onOpenClick: function () {
@@ -79,44 +89,77 @@ var UploadFilePage = React.createClass({
     },
 
     render : function() {
+        var divStyle = {
+          padding: "15px",
+          textAlign : "center"
+        }
+
+        var centerStyle = {
+            display : "block",
+            margin : "auto",
+            textAlign : "center",
+            fontSize : "1.5em"
+        }
+
+        var inputStyle={
+          display : "block",
+          width : "80%",
+          height : "40px",
+          margin : "auto",
+          backgroundColor : "#fff"
+        }
+
+        var buttonStyle = {
+          margin : "10px 10px"
+        }
+
         return (
-          <div>
+          <div className="panel col-xs-12 col-md-4 col-centered" style={divStyle}>
             <h1>Upload file</h1>
-            <Dropzone ref="dropzone" onDrop={this.onDrop} >
-                <div>Drag and drop to upload a file.</div>
+            <Dropzone className="form-control" style={{height:"70px"}} ref="dropzone"
+                onDrop={this.onDrop}
+                multiple={false}
+                accept="text/csv">
+                <p>{this.state.dropzone_text}</p>
             </Dropzone>
 
-            <div>
-                <p>rsId</p>
-                <select id="dropdown_rsid" value={this.state.rsid_header} onChange={this.OnSelectRsidChange}>
-                    <option value={this.props.rsid}>{this.props.rsid}</option>
-                    <option value={this.props.chr}>{this.props.chr}</option>
-                    <option value={this.props.pos}>{this.props.pos}</option>
-                </select>
-
-                <p>chromosome</p>
-                <select id="dropdown_chromosome" value={this.state.chromosome_header} onChange={this.OnSelectChromosomeChange}>
-                    <option value={this.props.rsid}>{this.props.rsid}</option>
-                    <option value={this.props.chr}>{this.props.chr}</option>
-                    <option value={this.props.pos}>{this.props.pos}</option>
-                </select>
-
-                <p>position</p>
-                <select id="dropdown_position" value={this.state.position_header} onChange={this.OnSelectPositionChange}>
-                    <option value={this.props.rsid}>{this.props.rsid}</option>
-                    <option value={this.props.chr}>{this.props.chr}</option>
-                    <option value={this.props.pos}>{this.props.pos}</option>
-                </select>
-            </div>
-
-            <button type="button" onClick={this.onOpenClick}>
+            <button className="btn btn-primary" style={buttonStyle} onClick={this.onOpenClick} type="button" >
                 Upload
             </button>
 
-            <button onClick={this.onSubmit} type="submit" id="submitAS">Submit</button>
+            <button className="btn btn-primary" style={buttonStyle} onClick={this.onSubmit} type="submit" id="submitAS">Submit</button>
+
+            <div className="form-group">
+                <div style={centerStyle}>
+                    <p>rsId</p>
+                    <select disabled style={inputStyle} className="form-control" id="dropdown_rsid" value={this.state.rsid_header} onChange={this.OnSelectRsidChange}>
+                        <option value={this.props.rsid}>{this.props.rsid}</option>
+                        <option value={this.props.chr}>{this.props.chr}</option>
+                        <option value={this.props.pos}>{this.props.pos}</option>
+                    </select>
+                </div>
+
+                <div style={centerStyle}>
+                    <p>chromosome</p>
+                    <select disabled style={inputStyle} className="form-control" id="dropdown_chromosome" value={this.state.chromosome_header} onChange={this.OnSelectChromosomeChange}>
+                        <option value={this.props.rsid}>{this.props.rsid}</option>
+                        <option value={this.props.chr}>{this.props.chr}</option>
+                        <option value={this.props.pos}>{this.props.pos}</option>
+                    </select>
+                </div>
+
+                <div style={centerStyle}>
+                    <p>position</p>
+                    <select disabled style={inputStyle} className="form-control" id="dropdown_position" value={this.state.position_header} onChange={this.OnSelectPositionChange}>
+                        <option value={this.props.rsid}>{this.props.rsid}</option>
+                        <option value={this.props.chr}>{this.props.chr}</option>
+                        <option value={this.props.pos}>{this.props.pos}</option>
+                    </select>
+                </div>
+            </div>
 
             <p>
-                <button type="button" onClick={this.OnHandleFile}>
+                <button disabled={this.state.areaSelectionDisabled} id="areaSelection_button" className="btn btn-primary" type="button" onClick={this.OnHandleFile}>
                     Area selection
                 </button>
             </p>
