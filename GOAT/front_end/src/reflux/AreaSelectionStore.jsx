@@ -79,7 +79,7 @@ var AreaSelectionStore = Reflux.createStore({
          result = JSON.parse(xhr.responseText);
          //store.script = result.script;
          //store.div = result.div;
-         store.data = JSON.parse(result.data);
+         store.data = result.data;
          console.log('Data received :)');
          store.fireUpdate();
       }else{
@@ -136,7 +136,7 @@ var AreaSelectionStore = Reflux.createStore({
       xhr.onload = function() {
         if (xhr.status==200) {
             result = JSON.parse(xhr.responseText);
-            store.data = JSON.parse(result.data);
+            store.data = result.data;
             store.fireUpdate();
 
         } else {

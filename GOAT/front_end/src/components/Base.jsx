@@ -133,7 +133,6 @@ var Base = React.createClass({
         break;
       case "areaSelection":
         console.log(data);
-
         this.setState({
           appState : "AreaSelection",
           data : data[0],

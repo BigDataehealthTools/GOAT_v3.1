@@ -34257,12 +34257,6 @@ var AreaselectionPage = React.createClass({
     var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
     var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
 
-    //console.log("jsonChrBoundaries");
-    //console.log(jsonChrBoundaries);
-    //console.log("jsonValidRsids");
-    //console.log(jsonValidRsids);
-
-
     var dataProvider = [];
 
     for (var i = 0; i < jsonChrBoundaries.length; i++) {
@@ -34314,16 +34308,13 @@ var AreaselectionPage = React.createClass({
       return false;
     }
 
-    //console.log("dataprovider");
-    //console.log(dataProvider);
-    //console.log("graphs");
-    //console.log(graphs);
-
     return React.createElement(AmCharts.React, {
       "libs": { "path": "node_modules/amcharts3-export/libs/" },
       "type": "serial",
       "theme": "light",
       "thousandsSeparator": " ",
+      "sequencedAnimation": false,
+      "startDuration": 1,
 
       "legend": {
         "position": "right",
@@ -34343,9 +34334,7 @@ var AreaselectionPage = React.createClass({
         "position": "left"
       }],
 
-      "startDuration": 1,
       "graphs": graphs,
-
       "columnWidth": 0.4,
       "categoryField": "chromosome",
       "categoryAxis": {
@@ -34495,7 +34484,6 @@ var Base = React.createClass({
         break;
       case "areaSelection":
         console.log(data);
-
         this.setState({
           appState: "AreaSelection",
           data: data[0],
@@ -37443,7 +37431,7 @@ var AreaSelectionStore = Reflux.createStore({
         result = JSON.parse(xhr.responseText);
         //store.script = result.script;
         //store.div = result.div;
-        store.data = JSON.parse(result.data);
+        store.data = result.data;
         console.log('Data received :)');
         store.fireUpdate();
       } else {
@@ -37499,8 +37487,9 @@ var AreaSelectionStore = Reflux.createStore({
     xhr.open('POST', encodeURI("/handleFile/"), true);
     xhr.onload = function () {
       if (xhr.status == 200) {
-        //var json = JSON.parse(xhr.responseText);
-        //store.sendHeaders(json.headers);
+        result = JSON.parse(xhr.responseText);
+        store.data = result.data;
+        store.fireUpdate();
       } else {
         console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
       }

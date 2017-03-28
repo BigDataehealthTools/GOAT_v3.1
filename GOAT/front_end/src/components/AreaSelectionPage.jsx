@@ -35,13 +35,6 @@ var AreaselectionPage = React.createClass({
       var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
       var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
 
-      //console.log("jsonChrBoundaries");
-      //console.log(jsonChrBoundaries);
-      //console.log("jsonValidRsids");
-      //console.log(jsonValidRsids);
-
-
-
       var dataProvider = [];
 
       for (var i=0; i<jsonChrBoundaries.length; i++) {
@@ -52,8 +45,6 @@ var AreaselectionPage = React.createClass({
           "phenotype": i
         });
       }
-
-
 
       var graphs = [{
         "colorField": "color",
@@ -87,15 +78,8 @@ var AreaselectionPage = React.createClass({
         });
       }
 
-
-
-
-
-
       function handleLegendClick( graph ) {
         var chart = graph.chart;
-
-
 
         for( var i = 0; i < chart.graphs.length; i++ ) {
           if ( graph.id == chart.graphs[i].id )
@@ -111,20 +95,13 @@ var AreaselectionPage = React.createClass({
       }
 
 
-
-
-
-
-      //console.log("dataprovider");
-      //console.log(dataProvider);
-      //console.log("graphs");
-      //console.log(graphs);
-
       return React.createElement(AmCharts.React, {
           "libs": { "path": "node_modules/amcharts3-export/libs/" },
           "type": "serial",
           "theme": "light",
           "thousandsSeparator": " ",
+          "sequencedAnimation": false,
+          "startDuration": 1,
 
           "legend": {
             "position": "right",
@@ -144,11 +121,7 @@ var AreaselectionPage = React.createClass({
             "position": "left"
           } ],
 
-          "startDuration": 1,
           "graphs": graphs,
-
-
-
           "columnWidth": 0.4,
           "categoryField": "chromosome",
           "categoryAxis": {
