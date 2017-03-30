@@ -21,17 +21,17 @@ under the License.*/
 //This file contains the panel list configuration.
 
 //Dependencies
-var SnpActions = require('../../reflux/SnpActions.jsx');
-var ManhattanActions = require('../../reflux/ManhattanActions.jsx');
+//var SnpActions = require('../../reflux/SnpActions.jsx');
+//var ManhattanActions = require('../../reflux/ManhattanActions.jsx');
 var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
-var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
+//var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
 
 //Variables
 var oddClass = "col-xs-10 col-xs-offset-1 col-md-4";
 var evenClass = "col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2";
 var centerClass = "col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4"
 module.exports= [
-  {
+  /*{
     heading:"Gene Query & Manhattan",
     content : "Displays a table of snps and a list of relevant phenotypes or an interactive Manhattan plot",
     height : "auto",
@@ -40,21 +40,21 @@ module.exports= [
     action : function(){
       SnpActions.queryParams();
     }
-  },
+  },*/
   {
-    heading :"Area Selection",
-    content : "Requires a position, and displays a zoomed-in, interactive Manhattan plot",
+    heading :"ADAM Genome Viewer",
+    content : "Select Rsids from the ADAM backend and shows them in a graph.",
     height : "auto",
-    size : evenClass,
+    size : oddClass,
     action : function(){
       AreaSelectionActions.queryParams();
     }
   },
   {
-    heading : "PFE",
-    content : "Area Selection, upload a file",
+    heading : "SQL Genome Viewer",
+    content : "Upload a .csv file and view all the matched sequences in a graph.",
     height : "auto",
-    size : centerClass,
+    size : evenClass,
     action : function(){
        AreaSelectionActions.uploadFile();
     }
@@ -69,7 +69,7 @@ module.exports= [
   //     ManhattanActions.getManhattanData();
   //   }
   // },
-  {
+  /*{
     heading : "Snps for one Gene",
     content : "Get Relevant Snps of one Gene",
     height : "auto",
@@ -77,7 +77,7 @@ module.exports= [
     action : function(){
        SnpsForGeneActions.querySFGParams();
     }
-  }
+  }*/
   // ,
   // {
   //   heading :"Machine Learning",

@@ -66,25 +66,21 @@ def areaSelection(request, chromosome, position, phenotype, userWidth, userHeigh
     print request, chromosome, position, phenotype
 
     data = [
-        #"rs33333",
-        {"rsid": "rs2558128", "position": "123123123", "chromosome": "4"},
-        {"rsid": "rs2319227", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs1177257", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs12403445", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs12403445", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs7539261", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs2718295", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs6489602", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs2319227", "position": "234234234", "chromosome": "4"},
-        {"rsid": "rs1402337", "position": "234234234", "chromosome": "4"}
+        {"rsid": "rs2558128", "position": "168052827", "chromosome": "4"},
+        {"rsid": "rs2319227", "position": "68281255", "chromosome": "4"},
+        {"rsid": "rs1177257", "position": "35936786", "chromosome": "14"},
+        {"rsid": "rs12403445", "position": "180587560", "chromosome": "1"},
+        {"rsid": "rs7539261", "position": "40050503", "chromosome": "1"},
+        {"rsid": "rs2718295", "position": "88262924", "chromosome": "7"},
+        {"rsid": "rs6489602", "position": "5140968", "chromosome": "12"},
+        {"rsid": "rs1402337", "position": "119154183", "chromosome": "12"}
     ]
 
     return genomeViewer(data)
 
 def genomeViewer(data):
-    print data
 
-    rsidArray = [o['rsid'] for o in data]
+    rsidArray = data#[o['rsid'] for o in data]
 
     chrBoundaries = getChromosomeBoundaries()
     validRsids = fetchValidRsids(rsidArray)
@@ -108,29 +104,27 @@ def getChromosomeBoundaries():
     chrBoundaries = connect.fetchData(sqlQuery)
     return buildJsonData(chrBoundaries)
 
-def fetchValidRsids(rsids):
+def fetchValidRsids(rows):
     #print "rsids"
     #print rsids
     #print ','.join(map(str, rsids))
     #We query all rows where we have a data match
-    sqlQuery = 'SELECT * FROM marqueurs WHERE nom in ("' + '","'.join(map(str, rsids)) + '");'
-    validRsids = connect.fetchData(sqlQuery)
+    #sqlQuery = 'SELECT * FROM marqueurs WHERE nom in ("' + '","'.join(map(str, rsids)) + '");'
+    #validRsids = connect.fetchData(sqlQuery)
 
-    #validRsids = []
+    validRsids = []
 
-    #for rsid in rsids:
-    #    sqlQuery = 'SELECT * FROM marqueurs WHERE nom="' + rsid + '";'
-    #    match = connect.fetchData(sqlQuery)
-    #    print match
-    #    j = buildJsonData(match)
-    #    print j
+    for row in rows:
+        sqlQuery = 'SELECT * FROM marqueurs WHERE nom="' + row['rsid'] + '" AND position=' + row['position'] + ' AND chromosome=' + row['chromosome'] + ';'
+        match = connect.fetchData(sqlQuery)
 
-    #    o = json.loads(j)
-    #    print o
+        # We do [1:-1] because it extracts the data from array. The data being a string, it removes the first and last characters : [ and ].
+        j = buildJsonData(match)[1:-1]
+        # If no result was returned, the data was "[]" which both chars were stripped. So.. empty string.
+        if j != "":
+            validRsids.append(j)
 
-    #    validRsids.append(o)
-
-    return buildJsonData(validRsids)
+    return json.dumps(validRsids)
 
 def buildJsonData(data):
     jsonData = data.to_json(orient='records')#json table
@@ -154,8 +148,6 @@ def handleFile(request):
     output = []
 
     for row in json.loads(data):
-        print row
-        print row[request.POST['rsid_header']]
 
         output.append({
             'rsid': row[request.POST['rsid_header']],

@@ -34278,15 +34278,17 @@ var AreaselectionPage = React.createClass({
     }];
 
     for (var i = 0; i < jsonValidRsids.length; i++) {
-      dataProvider[jsonValidRsids[i].chromosome][jsonValidRsids[i].nom] = jsonValidRsids[i].position;
+      var validRsid = JSON.parse(jsonValidRsids[i]);
+
+      dataProvider[validRsid.chromosome][validRsid.nom] = validRsid.position;
 
       graphs.push({
-        "title": jsonValidRsids[i].nom,
+        "title": validRsid.nom,
         "bullet": "square",
         "bulletColor": "#ff1144",
         "bulletSize": "15",
-        "valueField": jsonValidRsids[i].nom,
-        "balloonText": "nom : " + jsonValidRsids[i].nom + "\n" + "chromosome : " + jsonValidRsids[i].chromosome + "\n" + "position : " + jsonValidRsids[i].position + "\n" + "gene_before : " + jsonValidRsids[i].gene_before + "\n" + "gene_after : " + jsonValidRsids[i].gene_after + "\n" + "idgenes : " + jsonValidRsids[i].idgenes + "\n" + "idmarqueurs : " + jsonValidRsids[i].idmarqueurs,
+        "valueField": validRsid.nom,
+        "balloonText": "nom : " + validRsid.nom + "\n" + "chromosome : " + validRsid.chromosome + "\n" + "position : " + validRsid.position + "\n" + "gene_before : " + validRsid.gene_before + "\n" + "gene_after : " + validRsid.gene_after + "\n" + "idgenes : " + validRsid.idgenes + "\n" + "idmarqueurs : " + validRsid.idmarqueurs,
         "phenotype": i,
         "mutation": i + 1
 
@@ -34736,75 +34738,45 @@ under the License.*/
 //This file contains the panel list configuration.
 
 //Dependencies
-var SnpActions = require('../../reflux/SnpActions.jsx');
-var ManhattanActions = require('../../reflux/ManhattanActions.jsx');
+//var SnpActions = require('../../reflux/SnpActions.jsx');
+//var ManhattanActions = require('../../reflux/ManhattanActions.jsx');
 var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
-var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
+//var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
 
 //Variables
 var oddClass = "col-xs-10 col-xs-offset-1 col-md-4";
 var evenClass = "col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2";
 var centerClass = "col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4";
-module.exports = [{
-  heading: "Gene Query & Manhattan",
-  content: "Displays a table of snps and a list of relevant phenotypes or an interactive Manhattan plot",
-  height: "auto",
-  size: oddClass,
-  url: "/table", //Testing Url.
-  action: function () {
+module.exports = [
+/*{
+  heading:"Gene Query & Manhattan",
+  content : "Displays a table of snps and a list of relevant phenotypes or an interactive Manhattan plot",
+  height : "auto",
+  size : oddClass,
+  url : "/table", //Testing Url.
+  action : function(){
     SnpActions.queryParams();
   }
-}, {
-  heading: "Area Selection",
-  content: "Requires a position, and displays a zoomed-in, interactive Manhattan plot",
+},*/
+{
+  heading: "ADAM Genome Viewer",
+  content: "Select Rsids from the ADAM backend and shows them in a graph.",
   height: "auto",
-  size: evenClass,
+  size: oddClass,
   action: function () {
     AreaSelectionActions.queryParams();
   }
 }, {
-  heading: "PFE",
-  content: "Area Selection, upload a file",
+  heading: "SQL Genome Viewer",
+  content: "Upload a .csv file and view all the matched sequences in a graph.",
   height: "auto",
-  size: centerClass,
+  size: evenClass,
   action: function () {
     AreaSelectionActions.uploadFile();
   }
-},
-// {
-//   heading :"Manhattan",
-//   content : "Displays a Manhattan plot for a selected treshold",
-//   caution : "Takes a long time to run (5min)",
-//   height : "auto",
-//   size : "col-xs-10 col-xs-offset-1 col-md-4",
-//   action : function(){
-//     ManhattanActions.getManhattanData();
-//   }
-// },
-{
-  heading: "Snps for one Gene",
-  content: "Get Relevant Snps of one Gene",
-  height: "auto",
-  size: centerClass,
-  action: function () {
-    SnpsForGeneActions.querySFGParams();
-  }
-}
-// ,
-// {
-//   heading :"Machine Learning",
-//   content : "Coming soon...",
-//   height : "auto",
-//   size : evenClass
-// },{
-//   heading : "Phenotype Comparison",
-//   content : "Coming soon too",
-//   height : "auto",
-//   size : oddClass
-// }
-];
+}];
 
-},{"../../reflux/AreaSelectionActions.jsx":290,"../../reflux/ManhattanActions.jsx":292,"../../reflux/SnpActions.jsx":296,"../../reflux/SnpsForGeneActions.jsx":298}],263:[function(require,module,exports){
+},{"../../reflux/AreaSelectionActions.jsx":290}],263:[function(require,module,exports){
 /*Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information

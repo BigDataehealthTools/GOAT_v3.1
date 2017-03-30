@@ -32,108 +32,111 @@ var AreaselectionPage = React.createClass({
 
   render : function() {
 
-      var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
-      var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
+    var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
+    var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
 
-      var dataProvider = [];
+    var dataProvider = [];
 
-      for (var i=0; i<jsonChrBoundaries.length; i++) {
-        dataProvider.push({
-          "chromosome": jsonChrBoundaries[i].chromosome,
-          "min": jsonChrBoundaries[i].min,
-          "max": jsonChrBoundaries[i].max,
-          "phenotype": i
-        });
-      }
+    for (var i=0; i<jsonChrBoundaries.length; i++) {
+      dataProvider.push({
+        "chromosome": jsonChrBoundaries[i].chromosome,
+        "min": jsonChrBoundaries[i].min,
+        "max": jsonChrBoundaries[i].max,
+        "phenotype": i
+      });
+    }
 
-      var graphs = [{
-        "colorField": "color",
-        "fillAlphas": 0.8,
-        "lineColor": "#00bfff",
-        "openField": "min",
-        "type": "column",
-        "valueField": "max"
-      }];
+    var graphs = [{
+      "colorField": "color",
+      "fillAlphas": 0.8,
+      "lineColor": "#00bfff",
+      "openField": "min",
+      "type": "column",
+      "valueField": "max"
+    }];
 
-      for (var i=0; i<jsonValidRsids.length; i++) {
-        dataProvider[jsonValidRsids[i].chromosome][jsonValidRsids[i].nom] = jsonValidRsids[i].position;
+    for (var i=0; i<jsonValidRsids.length; i++) {
+      var validRsid = JSON.parse(jsonValidRsids[i]);
 
-        graphs.push({
-            "title": jsonValidRsids[i].nom,
-            "bullet": "square",
-            "bulletColor": "#ff1144",
-            "bulletSize": "15",
-            "valueField": jsonValidRsids[i].nom,
-            "balloonText":
-              "nom : " + jsonValidRsids[i].nom + "\n" +
-              "chromosome : " + jsonValidRsids[i].chromosome + "\n" +
-              "position : " + jsonValidRsids[i].position + "\n" +
-              "gene_before : " + jsonValidRsids[i].gene_before + "\n" +
-              "gene_after : " + jsonValidRsids[i].gene_after + "\n" +
-              "idgenes : " + jsonValidRsids[i].idgenes + "\n" +
-              "idmarqueurs : " + jsonValidRsids[i].idmarqueurs,
-            "phenotype" : i,
-            "mutation" : i+1
+      dataProvider[validRsid.chromosome][validRsid.nom] = validRsid.position;
 
-        });
-      }
+      graphs.push({
+          "title": validRsid.nom,
+          "bullet": "square",
+          "bulletColor": "#ff1144",
+          "bulletSize": "15",
+          "valueField": validRsid.nom,
+          "balloonText":
+            "nom : " + validRsid.nom + "\n" +
+            "chromosome : " + validRsid.chromosome + "\n" +
+            "position : " + validRsid.position + "\n" +
+            "gene_before : " + validRsid.gene_before + "\n" +
+            "gene_after : " + validRsid.gene_after + "\n" +
+            "idgenes : " + validRsid.idgenes + "\n" +
+            "idmarqueurs : " + validRsid.idmarqueurs,
+          "phenotype" : i,
+          "mutation" : i+1
 
-      function handleLegendClick( graph ) {
-        var chart = graph.chart;
+      });
+    }
 
-        for( var i = 0; i < chart.graphs.length; i++ ) {
-          if ( graph.id == chart.graphs[i].id )
-            if (chart.graphs[i].hidden) {
-              chart.showGraph(chart.graphs[i]);
-            } else {
-              chart.hideGraph(chart.graphs[i]);
-            }
-        }
+    function handleLegendClick( graph ) {
+      var chart = graph.chart;
 
-        // return false so that default action is canceled
-        return false;
-      }
-
-
-      return React.createElement(AmCharts.React, {
-          "libs": { "path": "node_modules/amcharts3-export/libs/" },
-          "type": "serial",
-          "theme": "light",
-          "thousandsSeparator": " ",
-          "sequencedAnimation": false,
-          "startDuration": 1,
-
-          "legend": {
-            "position": "right",
-            "horizontalGap": 10,
-            "useGraphSettings": true,
-            "markerSize": 10,
-            "valueText": "[[value]]",
-            "clickMarker": handleLegendClick,
-            "clickLabel": handleLegendClick
-          },
-
-          "dataProvider": dataProvider,
-
-          "valueAxes": [ {
-            "axisAlpha": 0,
-            "gridAlpha": 0.1,
-            "position": "left"
-          } ],
-
-          "graphs": graphs,
-          "columnWidth": 0.4,
-          "categoryField": "chromosome",
-          "categoryAxis": {
-            "gridPosition": "start",
-            "axisAlpha": 0,
-            "gridAlpha": 0.1
-          },
-          "export": {
-            "enabled": true
+      for( var i = 0; i < chart.graphs.length; i++ ) {
+        if ( graph.id == chart.graphs[i].id )
+          if (chart.graphs[i].hidden) {
+            chart.showGraph(chart.graphs[i]);
+          } else {
+            chart.hideGraph(chart.graphs[i]);
           }
-        });
       }
+
+      // return false so that default action is canceled
+      return false;
+    }
+
+
+
+    return React.createElement(AmCharts.React, {
+        "libs": { "path": "node_modules/amcharts3-export/libs/" },
+        "type": "serial",
+        "theme": "light",
+        "thousandsSeparator": " ",
+        "sequencedAnimation": false,
+        "startDuration": 1,
+
+        "legend": {
+          "position": "right",
+          "horizontalGap": 10,
+          "useGraphSettings": true,
+          "markerSize": 10,
+          "valueText": "[[value]]",
+          "clickMarker": handleLegendClick,
+          "clickLabel": handleLegendClick
+        },
+
+        "dataProvider": dataProvider,
+
+        "valueAxes": [ {
+          "axisAlpha": 0,
+          "gridAlpha": 0.1,
+          "position": "left"
+        } ],
+
+        "graphs": graphs,
+        "columnWidth": 0.4,
+        "categoryField": "chromosome",
+        "categoryAxis": {
+          "gridPosition": "start",
+          "axisAlpha": 0,
+          "gridAlpha": 0.1
+        },
+        "export": {
+          "enabled": true
+        }
+      });
+    }
 });
 
 module.exports = AreaselectionPage;
