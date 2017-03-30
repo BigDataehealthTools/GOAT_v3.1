@@ -25,22 +25,6 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.db import connection # Used to connect with the database
 
-#--- Bokeh ---#
-from bokeh.models import Plot
-from bokeh.embed import components
-from bokeh.resources import Resources
-from bokeh.plotting import figure, output_file, show, ColumnDataSource, gridplot
-from bokeh.models import TapTool, HoverTool, BoxSelectTool, BoxZoomTool, CrosshairTool, WheelZoomTool, ResizeTool, ResetTool, PanTool
-from bokeh.models.glyphs import Rect
-from bokeh.resources import CDN
-
-from bokeh.models.layouts import HBox
-import copy
-
-
-from bokeh.models.widgets.groups import CheckboxGroup
-from bokeh.io import output_file, show, hplot
-
 #--- Pandas ---#
 import pandas as pandas
 import numpy as numpy
@@ -148,7 +132,6 @@ def handleFile(request):
     output = []
 
     for row in json.loads(data):
-
         output.append({
             'rsid': row[request.POST['rsid_header']],
             'position': row[request.POST['position_header']],
