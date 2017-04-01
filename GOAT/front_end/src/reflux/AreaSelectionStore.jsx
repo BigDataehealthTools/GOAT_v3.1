@@ -26,8 +26,6 @@ var AreaSelectionStore = Reflux.createStore({
   fireUpdate : function(){
     //We trigger this function when we want to refresh the data
     this.trigger('areaSelection', [
-      //this.script,
-      //this.div,
       this.data,
       {
         rsID : this.rsID,

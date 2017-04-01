@@ -31,7 +31,7 @@ var UploadFilePage = React.createClass({
             rsid_header: 'rsid',
             chromosome_header: 'chr',
             position_header: 'position',
-            dropzone_text: 'Drag and drop to upload a file or click here to choose your file.',
+            dropzone_text: 'Drag and drop a file or click here to upload your file.',
             areaSelectionDisabled: true
         };
     },

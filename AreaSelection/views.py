@@ -126,8 +126,10 @@ def extractHeader(request):
     return HttpResponse(response)
 
 def handleFile(request):
-    reader = csv.DictReader(request.FILES['file'])
+    f = request.FILES['file']
+    reader = csv.DictReader(f)
     data = json.dumps([ row for row in reader ])
+    f.close()
 
     output = []
 

@@ -26,7 +26,6 @@ var Actions = Reflux.createActions([
   'uploadFile',
   'extractHeader',
   'handleFile',
-  'getGenomeViewer'
 ]);
 
 module.exports = Actions;

@@ -96,7 +96,6 @@ var Base = React.createClass({
         break;
 
       case "uploadFile":
-        console.log("PFE");
           this.setState({
             appState : "UploadFile",
             snps : []
@@ -104,8 +103,6 @@ var Base = React.createClass({
           break;
 
       case "sendHeaders":
-        console.log("sendHeaders");
-        console.log(data);
           this.setState({
             appState : "UploadFile",
             snps : [],
@@ -116,7 +113,6 @@ var Base = React.createClass({
           break;
 
       case "manhattan" :
-        console.log(data);
         this.setState({
           appState : "Manhattan",
           snps : [],
@@ -136,8 +132,6 @@ var Base = React.createClass({
         this.setState({
           appState : "AreaSelection",
           data : data[0],
-          //div : data[1],
-          //snps : data[2],
           rsID : data[1].rsID,
           chromosome : data[1].chromosome,
           phenotype : data[1].phenotype
