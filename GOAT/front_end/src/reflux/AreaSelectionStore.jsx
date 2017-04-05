@@ -28,7 +28,7 @@ var AreaSelectionStore = Reflux.createStore({
     this.trigger('areaSelection', [
       this.data,
       {
-        rsID : this.rsID,
+        rsid : this.rsid,
         chromosome : this.chromosome,
         phenotype : this.phenotype
       }
@@ -45,7 +45,10 @@ var AreaSelectionStore = Reflux.createStore({
 
   queryParams : function(){
     var store = this;
-    var xhr = new XMLHttpRequest();
+
+    store.trigger('areaSelectionQueryParams', store.phenotypes);
+
+    /*var xhr = new XMLHttpRequest();
     xhr.open('GET', encodeURI("/phenotypes", true));
     xhr.onload = function(){
       if(xhr.status==200){
@@ -55,14 +58,14 @@ var AreaSelectionStore = Reflux.createStore({
         console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
       }
     };
-    xhr.send();
+    xhr.send();*/
   },
-  getAreaSelection : function(chromosome, position, phenotype, rsID){
+  getAreaSelection : function(chromosome, position, rsid){
     // console.log(chromosome, position, phenotype);
     this.trigger('wait');
-    this.rsID = rsID;
+    this.position = position;
     this.chromosome = chromosome;
-    this.phenotype = phenotype;
+    this.rsid = rsid;
     var store = this;
     var xhr = new XMLHttpRequest();
     width = Math.floor($('#application').width()*0.9);
@@ -70,8 +73,7 @@ var AreaSelectionStore = Reflux.createStore({
     if(height>=1000){
       height = 1000;
     }
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', encodeURI("/areaSelection/"+chromosome+"/"+position+"/"+phenotype+"/"+width+"/"+height), true);
+    xhr.open('GET', encodeURI("/areaSelection/"+chromosome+"/"+position+"/"+rsid+"/"+width+"/"+height), true);
     xhr.onload = function(){
       if(xhr.status==200){
          result = JSON.parse(xhr.responseText);

@@ -123,8 +123,7 @@ var Base = React.createClass({
       case "areaSelectionQueryParams":
         console.log("AREA SELECTION");
         this.setState({
-          appState : "AreaSelectionForm",
-          phenotypes : data
+          appState : "AreaSelectionForm"
         });
         break;
       case "areaSelection":
@@ -132,9 +131,9 @@ var Base = React.createClass({
         this.setState({
           appState : "AreaSelection",
           data : data[0],
-          rsID : data[1].rsID,
           chromosome : data[1].chromosome,
-          phenotype : data[1].phenotype
+          phenotype : data[1].phenotype,
+          rsid : data[1].rsid
         });
         break;
       case "querySFGParams":
@@ -178,10 +177,10 @@ var Base = React.createClass({
         return <ManhattanPage  function={this.state.function} div={this.state.div}/>
         break;
       case "AreaSelectionForm":
-        return <AreaSelectionParamsPage phenotypes = {this.state.phenotypes}/>
+        return <AreaSelectionParamsPage/>
         break;
       case "AreaSelection":
-        return <div style={{height:'500px', backgroundColor:"white"}}><AreaSelectionPage data={this.state.data} rsID={this.state.rsID} chromosome={this.state.chromosome} phenotype={this.state.phenotype}/></div>
+        return <div style={{height:'500px', backgroundColor:"white"}}><AreaSelectionPage data={this.state.data} chromosome={this.state.chromosome} phenotype={this.state.phenotype} rsid={this.state.rsid}/></div>
         break;
       case "QuerySFGParams":
         return <QuerySFGPage/>

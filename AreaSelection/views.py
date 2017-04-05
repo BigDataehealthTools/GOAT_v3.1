@@ -46,8 +46,8 @@ import json
 # Create your views here.
 
 
-def areaSelection(request, chromosome, position, phenotype, userWidth, userHeight):
-    print request, chromosome, position, phenotype
+def areaSelection(request, chromosome, position, rsid, userWidth, userHeight):
+    print request, chromosome, position, rsid
 
     data = [
         {"rsid": "rs2558128", "position": "168052827", "chromosome": "4"},

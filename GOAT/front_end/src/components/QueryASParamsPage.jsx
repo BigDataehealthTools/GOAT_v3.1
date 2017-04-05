@@ -23,7 +23,6 @@ var React = require('react');
 
 //SubComponents
 var QueryAreaSelectionForm = require('./Form/QueryAreaSelectionForm.jsx');
-var PhenotypesTable = require('./Tables/PhenotypesTable.jsx');
 
 //Component
 var QueryASParamsPage = React.createClass({
@@ -36,7 +35,6 @@ var QueryASParamsPage = React.createClass({
     return (
       <div style={divStyle}>
         <QueryAreaSelectionForm />
-        <PhenotypesTable phenotypes={this.props.phenotypes}/>
       </div>
     );
   }

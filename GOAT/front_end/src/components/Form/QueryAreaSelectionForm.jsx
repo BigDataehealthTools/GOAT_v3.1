@@ -24,7 +24,6 @@ var Reflux = require('reflux');
 
 var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
 var AreaSelectionStore = require('../../reflux/AreaSelectionStore.jsx');
-var PhenotypeStore = require('../../reflux/PhenotypesStore.jsx');
 
 //SubComponents
 var InputPosition = require('./InputPosition.jsx');
@@ -34,7 +33,6 @@ var Input = require('./Input.jsx');
 //Component
 var QueryAreaSelectionForm = React.createClass({
   mixins : [
-    Reflux.listenTo(PhenotypeStore, 'onTrigger'),
     Reflux.listenTo(AreaSelectionStore, 'onChange')
   ],
   onChange : function(event, data){
@@ -54,21 +52,15 @@ var QueryAreaSelectionForm = React.createClass({
       type: "",
       position : "",
       chromosome: "",
-      phenotype : "",
+      rsid : "",
       submited : false,
       message : 'Choose your params'
     }
   },
-  onTrigger : function(event, data){
-    if(event=="setPhenotype"){
-      this.setState({phenotype : data});
-      this.refs.phenotype.setState({value : data, valid : true});
-    }
-  },
   onSubmit : function(e){
     e.preventDefault();
-    this.refs.chromosome.state.valid && this.refs.phenotype.state.valid && this.refs.position.state.valid? isFormatValid = true : isFormatValid = false;
-    isFormatValid? AreaSelectionActions.getAreaSelection(this.state.chromosome, this.state.position, this.state.phenotype) : alert('Your input format isn\'t valid !');
+    this.refs.chromosome.state.valid && this.refs.rsid.state.valid && this.refs.position.state.valid? isFormatValid = true : isFormatValid = false;
+    isFormatValid? AreaSelectionActions.getAreaSelection(this.state.chromosome, this.state.position, this.state.rsid) : alert('Your input format isn\'t valid !');
     isFormatValid? this.setState({submited : true}) : console.log("not valid");
   },
   onPositionChange : function(e){
@@ -77,8 +69,8 @@ var QueryAreaSelectionForm = React.createClass({
   onChromosomeChange : function(e){
     this.setState({ chromosome: e.target.value});
   },
-  onPhenotypeChange : function(e){
-    this.setState({ phenotype : e.target.value});
+  onRsidChange : function(e){
+    this.setState({ rsid : e.target.value});
   },
   render : function(){
 
@@ -109,9 +101,9 @@ var QueryAreaSelectionForm = React.createClass({
           <label style = {centerStyle}>Position</label>
           <InputPosition type="position" ref="position" placeholder="position -- format XXXXX with X between 0 and 9"/>
         </div>
-        <div className="form-group" onChange={this.onPhenotypeChange}>
-          <label style = {centerStyle}>Phenotype</label>
-          <Input type="phenotype" ref="phenotype" placeholder="Phenotype -- Enter the phenotype you want"/>
+        <div className="form-group" onChange={this.onRsidChange}>
+          <label style = {centerStyle}>rsID</label>
+          <Input type="rsid" ref="rsid" placeholder="rsID -- Enter the rsID you want"/>
         </div>
         <button onClick={this.onSubmit} style = {centerStyle} type="submit" className={this.state.submited? "btn btn-success" : "btn btn-primary"} id="submitAS">Area Selection</button>
       </form>
