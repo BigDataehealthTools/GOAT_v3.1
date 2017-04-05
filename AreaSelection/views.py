@@ -89,6 +89,7 @@ def getChromosomeBoundaries():
     return buildJsonData(chrBoundaries)
 
 def fetchValidRsids(rows):
+    #This code was used back when we only searched for matching rsids (no position or chromosome).
     #print "rsids"
     #print rsids
     #print ','.join(map(str, rsids))
@@ -102,7 +103,7 @@ def fetchValidRsids(rows):
         sqlQuery = 'SELECT * FROM marqueurs WHERE nom="' + row['rsid'] + '" AND position=' + row['position'] + ' AND chromosome=' + row['chromosome'] + ';'
         match = connect.fetchData(sqlQuery)
 
-        # We do [1:-1] because it extracts the data from array. The data being a string, it removes the first and last characters : [ and ].
+        # We do [1:-1] because it extracts the data from stringified-array. The data being a string, it removes the first and last characters : [ and ].
         j = buildJsonData(match)[1:-1]
         # If no result was returned, the data was "[]" which both chars were stripped. So.. empty string.
         if j != "":
