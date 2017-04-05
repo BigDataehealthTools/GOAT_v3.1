@@ -181,8 +181,7 @@ var Base = React.createClass({
         return <AreaSelectionParamsPage phenotypes = {this.state.phenotypes}/>
         break;
       case "AreaSelection":
-        return <div style={{height:'500px', backgroundColor:"white"}}>
-            <AreaSelectionPage data={this.state.data} rsID={this.state.rsID} chromosome={this.state.chromosome} phenotype={this.state.phenotype}/></div>
+        return <AreaSelectionPage data={this.state.data} rsID={this.state.rsID} chromosome={this.state.chromosome} phenotype={this.state.phenotype}/>
         break;
       case "QuerySFGParams":
         return <QuerySFGPage/>

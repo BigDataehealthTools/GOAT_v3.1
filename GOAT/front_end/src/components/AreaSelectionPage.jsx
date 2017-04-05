@@ -15,8 +15,8 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.*/
 
-// Author of the file : Victor Dupuy
-// mail : victor.dupuy@hei.fr
+// Author of the file : Raphael Papillon
+// mail : raph_p444@hotmail.com
 
 //Dependencies
 require("amcharts3-export");
@@ -30,96 +30,77 @@ var AmCharts = require("amcharts3-react");
 //Component
 var AreaselectionPage = React.createClass({
 
+  showAll : function(e) {
+    var chart = AmCharts.charts[0]
+
+    for (var i=1, iLen=chart.graphs.length; i<iLen; i++) {
+      console.log(i);
+      chart.showGraph(chart.graphs[i]);
+    }
+  },
+
+  hideAll : function(e) {
+    var chart = AmCharts.charts[0]
+
+    for (var i=1, iLen=chart.graphs.length; i<iLen; i++) {
+      chart.hideGraph(chart.graphs[i]);
+    }
+  },
+
   render : function() {
 
+    var jsonChrBoundaries = JSON.parse(this.props.data.jsonChrBoundaries);
+    var jsonValidRsids = JSON.parse(this.props.data.jsonValidRsids);
 
-    var data = [{
-      "index": 0,
-      "value": 160000000
-    }, {
-      "index": 1,
-      "value": 250000000
-    }, {
-      "index": 2,
-      "value": 240000000
-    }, {
-      "index": 3,
-      "value": 195000000
-    }, {
-      "index": 4,
-      "value": 190000000,
-      "thirdValue": 165000000,
-      "fourthValue": 65000000
-    }, {
-      "index": 5,
-      "value": 180000000
-    }, {
-      "index": 6,
-      "value": 170000000
-    }, {
-      "index": 7,
-      "value": 160000000
-    }, {
-      "index": 8,
-      "value": 145000000
-    }, {
-      "index": 9,
-      "value": 140000000
-    }, {
-      "index": 10,
-      "value": 130000000
-    }, {
-      "index": 11,
-      "value": 130000000
-    }, {
-      "index": 12,
-      "value": 130000000
-    }, {
-      "index": 13,
-      "value": 120000000,
-      "openValue": 20000000
-    }, {
-      "index": 14,
-      "value": 110000000,
-      "openValue": 10000000,
-      "secondValue": 47000000
-    }, {
-      "index": 15,
-      "value": 105000000,
-      "openValue": 15000000
-    }, {
-      "index": 16,
-      "value": 90000000
-    }, {
-      "index": 17,
-      "value": 80000000
-    }, {
-      "index": 18,
-      "value": 78000000
-    }, {
-      "index": 19,
-      "value": 60000000
-    }, {
-      "index": 20,
-      "value": 65000000
-    }, {
-      "index": 21,
-      "value": 48000000,
-      "openValue": 10000000
-    }, {
-      "index": 22,
-      "value": 51000000,
-      "openValue": 20000000
+    var data = [];
+
+    for (var i=0; i<jsonChrBoundaries.length; i++) {
+      data.push({
+        "chromosome": jsonChrBoundaries[i].chromosome,
+        "min": jsonChrBoundaries[i].min,
+        "max": jsonChrBoundaries[i].max
+      });
+    }
+
+    var graphs = [{
+      "colorField": "color",
+      "fillAlphas": 0.8,
+      "lineColor": "#00bfff",
+      "openField": "min",
+      "type": "column",
+      "valueField": "max",
+      "showBalloon": false
     }];
 
+    for (var i=0; i<jsonValidRsids.length; i++) {
+      var validRsid = JSON.parse(jsonValidRsids[i]);
 
+      data[validRsid.chromosome][validRsid.nom] = validRsid.position;
+
+      graphs.push({
+          "title": validRsid.nom,
+          "bullet": "square",
+          "bulletColor": "#ff1144",
+          "bulletSize": "15",
+          "valueField": validRsid.nom,
+          "balloonText":
+            "nom : " + validRsid.nom + "\n" +
+            "chromosome : " + validRsid.chromosome + "\n" +
+            "position : " + validRsid.position + "\n" +
+            "gene_before : " + validRsid.gene_before + "\n" +
+            "gene_after : " + validRsid.gene_after + "\n" +
+            "idgenes : " + validRsid.idgenes + "\n" +
+            "idmarqueurs : " + validRsid.idmarqueurs,
+          "phenotypeLegendText" : validRsid.phenotype,
+          "mutationLegendText" : validRsid.mutation
+      });
+    }
 
     function onInit (e) {
 
       var chart = e.chart,
           graphs = chart.graphs,
           createLegend = function (id, property) {
-
             var element = document.getElementById(id),
                 itemElement,
                 textElement,
@@ -133,11 +114,10 @@ var AreaselectionPage = React.createClass({
             for (var i = 0, iLen = graphs.length; i < iLen; i++) {
 
               graph = graphs[i];
-              value = graph[property];
+              value = graph[[property, "LegendText"].join("")];
               legendText = graph[[property, "LegendText"].join("")];
 
               if (value && legendText) {
-
                 matchingGraphs.push(graph);
                 legendReference = [property, value].join("-");
 
@@ -174,15 +154,14 @@ var AreaselectionPage = React.createClass({
       chart.customLegends = {};
 
       // Pass the legend's element id and which property to look for and group by
-      createLegend("shapeslegend", "bullet");
+      createLegend("phenotypeslegend", "phenotype");
 
       // Pass the legend's element id and which property to look for and group by
-      createLegend("colorslegend", "lineColor");
+      createLegend("mutationslegend", "mutation");
     }
 
     function onLegendClick (e) {
       console.log(e);
-
       var target = e.currentTarget,
           legendReference = target.legendReference,
           chart = AmCharts.charts[0],
@@ -197,63 +176,32 @@ var AreaselectionPage = React.createClass({
       }
     }
 
+
+
+
+
     var config = {
       "type": "serial",
       "theme": "light",
-      "dataProvider": data,
-      "valueAxes": [{
-        "gridColor": "#FFFFFF",
-        "gridAlpha": 0.2,
-        "dashLength": 0
-      }],
-      "gridAboveGraphs": true,
+      "thousandsSeparator": " ",
+      "sequencedAnimation": false,
       "startDuration": 1,
-      "graphs": [{
-        "balloonText": "[[category]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "type": "column",
-        "valueField": "value",
-        "openField": "openValue"
-      }, {
-        "bullet": "square",
-        "bulletLegendText": "Square",
-        "balloonText": "[[category]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "lineColor": "#FF0000",
-        "lineColorLegendText": "Red",
-        "valueField": "secondValue"
-      }, {
-        "bullet": "square",
-        "bulletLegendText": "Square",
-        "balloonText": "[[category]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "lineColor": "#84B761",
-        "lineColorLegendText": "Green",
-        "valueField": "thirdValue"
-      }, {
-        "bullet": "circle",
-        "bulletLegendText": "Circle",
-        "balloonText": "[[category]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "lineColor": "#84B761",
-        "lineColorLegendText": "Green",
-        "valueField": "fourthValue"
-      }],
-      "chartCursor": {
-        "categoryBalloonEnabled": false,
-        "cursorAlpha": 0,
-        "zoomable": false
-      },
-      "categoryField": "index",
+
+      "dataProvider": data,
+
+      "valueAxes": [ {
+         "axisAlpha": 0,
+         "gridAlpha": 0.1,
+         "position": "left"
+       } ],
+      "graphs": graphs,
+      "columnWidth": 0.4,
+
+      "categoryField": "chromosome",
       "categoryAxis": {
         "gridPosition": "start",
         "gridAlpha": 0,
-        "tickPosition": "start",
-        "tickLength": 20
+        "gridAlpha": 0.1
       },
       "export": {
         "enabled": true
@@ -265,13 +213,18 @@ var AreaselectionPage = React.createClass({
     };
 
     return (
-      <div>
+      <div className="container">
         <div className="col-md-10" style={{height:'500px', backgroundColor:"white"}}><AmCharts.React {...config} /></div>
-        <div className="col-md-2">
-          <strong>Shapes Legend</strong>
-          <div id="shapeslegend" className="custom-legend"></div>
-          <strong>Colors Legend</strong>
-          <div id="colorslegend" className="custom-legend"></div>
+        <div className="col-md-2" style={{backgroundColor:"white", height:"500px"}}>
+          <br/>
+          <strong>Phenotypes Legend</strong>
+          <div id="phenotypeslegend" className="custom-legend"></div>
+          <br/>
+          <strong>Mutations Legend</strong>
+          <div id="mutationslegend" className="custom-legend"></div>
+          <br/>
+          <button id="showAll" onClick={this.showAll} className="btn btn-primary">Show all</button>
+          <button id="hideAll" onClick={this.hideAll} className="btn btn-primary">Hide all</button>
         </div>
       </div>
     );
