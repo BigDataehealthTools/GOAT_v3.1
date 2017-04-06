@@ -15,8 +15,8 @@
 
 5. Set a MySQL database and load .sql files. (ask beatriz.kanzki@gmail.com)
    Also make sure MySQL is running!
-6. Connect projet to database (in the settings.py file)
-7. Migrate database (not really necessary since we loaded the sql files, but...)
+6. Connect project to database (in the settings.py file)
+7. Migrate database (not really necessary since we loaded the sql files, but we never know...)
 
     python manage.py migrate
 
@@ -28,7 +28,7 @@
 
     python manage.py runserver
 
-9. You should be good to go! The address should be http://localhost:3000
+9. You should be good to go! The address should be http://localhost:8000
 
 # What you need to work on the project #
 
@@ -52,4 +52,4 @@
     - python manage.py runserver
     - npm start
 
-6. You should be good to go! 
+6. You should be good to go!
