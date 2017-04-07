@@ -159,7 +159,7 @@ var UploadFilePage = React.createClass({
             </div>
 
             <p>
-                <button disabled={this.state.genomeViewerDisabled} id="areaSelection_button" className="btn btn-primary" type="button" onClick={this.OnGenomeViewer}>
+                <button disabled={this.state.genomeViewerDisabled} id="genomeViewer_button" className="btn btn-primary" type="button" onClick={this.OnGenomeViewer}>
                     Genome Viewer
                 </button>
             </p>

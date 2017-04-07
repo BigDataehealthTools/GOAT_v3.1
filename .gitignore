@@ -189,7 +189,4 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# Custom
-main.js
-
 # End of https://www.gitignore.io/api/osx,python,django,node

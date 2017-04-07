@@ -31,7 +31,7 @@ var InputChromosome = require('./InputChromosome.jsx');
 var Input = require('./Input.jsx');
 
 //Component
-var QueryAreaSelectionForm = React.createClass({
+var QueryGenomeViewerForm = React.createClass({
   mixins : [
     Reflux.listenTo(GenomeViewerStore, 'onChange')
   ],
@@ -105,7 +105,7 @@ var QueryAreaSelectionForm = React.createClass({
           <label style = {centerStyle}>rsID</label>
           <Input type="rsid" ref="rsid" placeholder="rsID -- Enter the rsID you want"/>
         </div>
-        <button onClick={this.onSubmit} style = {centerStyle} type="submit" className={this.state.submited? "btn btn-success" : "btn btn-primary"} id="submitAS">Area Selection</button>
+        <button onClick={this.onSubmit} style = {centerStyle} type="submit" className={this.state.submited? "btn btn-success" : "btn btn-primary"} id="submitAS">Genome Viewer</button>
       </form>
       </div>
 
@@ -113,4 +113,4 @@ var QueryAreaSelectionForm = React.createClass({
   }
 });
 
-module.exports = QueryAreaSelectionForm;
+module.exports = QueryGenomeViewerForm;

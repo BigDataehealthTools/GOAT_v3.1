@@ -46,14 +46,14 @@ var GenomeViewerStore = Reflux.createStore({
   queryParams : function(){
     var store = this;
 
-    store.trigger('areaSelectionQueryParams', store.phenotypes);
+    store.trigger('genomeViewerQueryParams', store.phenotypes);
 
     /*var xhr = new XMLHttpRequest();
     xhr.open('GET', encodeURI("/phenotypes", true));
     xhr.onload = function(){
       if(xhr.status==200){
          store.phenotypes = JSON.parse(xhr.responseText);
-         store.trigger('areaSelectionQueryParams', store.phenotypes);
+         store.trigger('genomeViewerQueryParams', store.phenotypes);
       }else{
         console.error("GOAT here : We couldn't get your data. Check the route, or your connection");
       }

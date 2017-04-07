@@ -22,7 +22,7 @@ under the License.*/
 var React = require('react');
 
 //SubComponents
-var QueryAreaSelectionForm = require('./Form/QueryAreaSelectionForm.jsx');
+var QueryGenomeViewerForm = require('./Form/QueryGenomeViewerForm.jsx');
 
 //Component
 var QueryASParamsPage = React.createClass({
@@ -34,7 +34,7 @@ var QueryASParamsPage = React.createClass({
 
     return (
       <div style={divStyle}>
-        <QueryAreaSelectionForm />
+        <QueryGenomeViewerForm />
       </div>
     );
   }

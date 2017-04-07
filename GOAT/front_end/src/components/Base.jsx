@@ -34,7 +34,7 @@ var Reflux = require('reflux');
     var ManhattanActions = require('../reflux/ManhattanActions.jsx');
     var ManhattanStore = require('../reflux/ManhattanStore.jsx');
 
-    //Area Selection
+    //Genome Viewer
     var GenomeViewerActions = require('../reflux/GenomeViewerActions.jsx');
     var GenomeViewerStore = require('../reflux/GenomeViewerStore.jsx');
 
@@ -48,7 +48,7 @@ var TablePage = require("./TablePage.jsx");
 var QueryParamsPage = require('./QueryParamsPage.jsx');
 var UploadFilePage = require('./UploadFilePage.jsx');
 var ManhattanPage = require('./ManhattanPage.jsx');
-var AreaSelectionParamsPage = require('./QueryASParamsPage.jsx');
+var GenomeViewerParamsPage = require('./QueryGVParamsPage.jsx');
 var GenomeViewerPage = require('./GenomeViewerPage.jsx');
 var QuerySFGPage = require('./QuerySFGPage.jsx');
 var SnpsForGenePage = require('./SnpsForGenePage.jsx');
@@ -120,10 +120,9 @@ var Base = React.createClass({
           div : data[1]
         });
         break;
-      case "areaSelectionQueryParams":
-        console.log("AREA SELECTION");
+      case "genomeViewerQueryParams":
         this.setState({
-          appState : "AreaSelectionForm"
+          appState : "GenomeViewerForm"
         });
         break;
       case "adamGenomeViewer":
@@ -175,8 +174,8 @@ var Base = React.createClass({
       case "Manhattan":
         return <ManhattanPage  function={this.state.function} div={this.state.div}/>
         break;
-      case "AreaSelectionForm":
-        return <AreaSelectionParamsPage/>
+      case "GenomeViewerForm":
+        return <GenomeViewerParamsPage/>
         break;
       case "GenomeViewer":
         return <div style={{height:'500px', backgroundColor:"white"}}><GenomeViewerPage data={this.state.data} chromosome={this.state.chromosome} position={this.state.position} rsid={this.state.rsid}/></div>
