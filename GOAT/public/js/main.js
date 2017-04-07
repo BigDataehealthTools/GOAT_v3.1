@@ -34277,7 +34277,6 @@ var Base = React.createClass({
           pos: data[2]
         });
         break;
-
       case "manhattan":
         this.setState({
           appState: "Manhattan",
@@ -34491,19 +34490,16 @@ var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
 
 module.exports = [{
   content: "HOME",
-  url: '/home',
   action: function () {
     SnpActions.goHome();
   }
 }, {
   content: "ADAM Genome Viewer",
-  url: '/adamGenomeViewer',
   action: function () {
     GenomeViewerActions.queryParams();
   }
 }, {
   content: "SQL Genome Viewer",
-  url: '/fileGenomeViewer',
   action: function () {
     GenomeViewerActions.uploadFile();
   }

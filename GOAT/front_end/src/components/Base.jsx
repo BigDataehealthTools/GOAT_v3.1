@@ -111,7 +111,6 @@ var Base = React.createClass({
             pos : data[2]
           });
           break;
-
       case "manhattan" :
         this.setState({
           appState : "Manhattan",
