@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^table/(?P<type>\w{0,20})/(?P<value>[0-9a-zA-Z_\- ()]{0,100})/', web.table),
     url(r'^table_csv/(?P<rsID>\w{0,50})/$', web.table_csv),
     url(r'^snpsForGene/(?P<gene>\w{0,20})/', web.snpsForGene),
-    url(r'^areaSelection/(?P<chromosome>[0-9]{0,2})/(?P<position>[0-9]{0,50})/(?P<rsid>[0-9a-zA-Z_ ()]{0,200})/(?P<userWidth>[0-9]{0,6})/(?P<userHeight>[0-9]{0,6})', AreaSelection.areaSelection),
+    url(r'^adamGenomeViewer/(?P<chromosome>[0-9]{0,2})/(?P<position>[0-9]{0,50})/(?P<rsid>[0-9a-zA-Z_ ()]{0,200})/(?P<userWidth>[0-9]{0,6})/(?P<userHeight>[0-9]{0,6})', AreaSelection.adamGenomeViewer),
     url(r'^autocomplete/genes/(?P<text>\w{0,20})/', autoComplete.autoCompleteGenes),
     url(r'^autocomplete/phenotypes/(?P<text>\w{0,20})/', autoComplete.AutoCompletePhenotypes),
     url(r'^manhattan/(?P<type>\w{0,20})/(?P<value>[0-9a-zA-Z_ ]{0,50})/(?P<userWidth>[0-9]+)/(?P<userHeight>[0-9]+)/', bokehGOAT.manhattan),
@@ -46,7 +46,6 @@ urlpatterns = [
     url(r'^phenotypes/', phenotypes.get),
     url(r'^uploadFile/', AreaSelection.uploadFile),
     url(r'^extractHeader/', AreaSelection.extractHeader),
-    url(r'^handleFile/', AreaSelection.handleFile),
-    url(r'^genomeViewer/(?P<rsID>\w{0,50})/(?P<position>[0-9]{0,50})/(?P<chromosome>[0-9]{0,2})', AreaSelection.genomeViewer),
+    url(r'^fileGenomeViewer/', AreaSelection.fileGenomeViewer),
     url(r'^admin/', admin.site.urls),
 ] +static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

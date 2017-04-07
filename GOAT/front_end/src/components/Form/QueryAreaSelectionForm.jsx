@@ -22,8 +22,8 @@ under the License.*/
 var React = require('react');
 var Reflux = require('reflux');
 
-var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
-var AreaSelectionStore = require('../../reflux/AreaSelectionStore.jsx');
+var GenomeViewerActions = require('../../reflux/GenomeViewerActions.jsx');
+var GenomeViewerStore = require('../../reflux/GenomeViewerStore.jsx');
 
 //SubComponents
 var InputPosition = require('./InputPosition.jsx');
@@ -33,7 +33,7 @@ var Input = require('./Input.jsx');
 //Component
 var QueryAreaSelectionForm = React.createClass({
   mixins : [
-    Reflux.listenTo(AreaSelectionStore, 'onChange')
+    Reflux.listenTo(GenomeViewerStore, 'onChange')
   ],
   onChange : function(event, data){
     switch(event){
@@ -60,7 +60,7 @@ var QueryAreaSelectionForm = React.createClass({
   onSubmit : function(e){
     e.preventDefault();
     this.refs.chromosome.state.valid && this.refs.rsid.state.valid && this.refs.position.state.valid? isFormatValid = true : isFormatValid = false;
-    isFormatValid? AreaSelectionActions.getAreaSelection(this.state.chromosome, this.state.position, this.state.rsid) : alert('Your input format isn\'t valid !');
+    isFormatValid? GenomeViewerActions.adamGenomeViewer(this.state.chromosome, this.state.position, this.state.rsid) : alert('Your input format isn\'t valid !');
     isFormatValid? this.setState({submited : true}) : console.log("not valid");
   },
   onPositionChange : function(e){

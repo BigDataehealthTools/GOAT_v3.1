@@ -35,8 +35,8 @@ var Reflux = require('reflux');
     var ManhattanStore = require('../reflux/ManhattanStore.jsx');
 
     //Area Selection
-    var AreaSelectionActions = require('../reflux/AreaSelectionActions.jsx');
-    var AreaSelectionStore = require('../reflux/AreaSelectionStore.jsx');
+    var GenomeViewerActions = require('../reflux/GenomeViewerActions.jsx');
+    var GenomeViewerStore = require('../reflux/GenomeViewerStore.jsx');
 
     //Snps for one gene
     var SnpsForGeneActions = require('../reflux/SnpsForGeneActions.jsx');
@@ -49,7 +49,7 @@ var QueryParamsPage = require('./QueryParamsPage.jsx');
 var UploadFilePage = require('./UploadFilePage.jsx');
 var ManhattanPage = require('./ManhattanPage.jsx');
 var AreaSelectionParamsPage = require('./QueryASParamsPage.jsx');
-var AreaSelectionPage = require('./AreaSelectionPage.jsx');
+var GenomeViewerPage = require('./GenomeViewerPage.jsx');
 var QuerySFGPage = require('./QuerySFGPage.jsx');
 var SnpsForGenePage = require('./SnpsForGenePage.jsx');
 
@@ -61,7 +61,7 @@ var Base = React.createClass({
   mixins : [
     Reflux.listenTo(SnpStore, 'onChange'),
     Reflux.listenTo(ManhattanStore, 'onChange'),
-    Reflux.listenTo(AreaSelectionStore,'onChange'),
+    Reflux.listenTo(GenomeViewerStore,'onChange'),
     Reflux.listenTo(SnpsForGeneStore, 'onChange')
   ],
   getInitialState : function(){
@@ -126,13 +126,12 @@ var Base = React.createClass({
           appState : "AreaSelectionForm"
         });
         break;
-      case "areaSelection":
-        console.log(data);
+      case "adamGenomeViewer":
         this.setState({
-          appState : "AreaSelection",
+          appState : "GenomeViewer",
           data : data[0],
           chromosome : data[1].chromosome,
-          phenotype : data[1].phenotype,
+          position : data[1].position,
           rsid : data[1].rsid
         });
         break;
@@ -179,8 +178,8 @@ var Base = React.createClass({
       case "AreaSelectionForm":
         return <AreaSelectionParamsPage/>
         break;
-      case "AreaSelection":
-        return <div style={{height:'500px', backgroundColor:"white"}}><AreaSelectionPage data={this.state.data} chromosome={this.state.chromosome} phenotype={this.state.phenotype} rsid={this.state.rsid}/></div>
+      case "GenomeViewer":
+        return <div style={{height:'500px', backgroundColor:"white"}}><GenomeViewerPage data={this.state.data} chromosome={this.state.chromosome} position={this.state.position} rsid={this.state.rsid}/></div>
         break;
       case "QuerySFGParams":
         return <QuerySFGPage/>

@@ -28,7 +28,7 @@ var AmCharts = require("amcharts3-react");
 //Sub-Components
 
 //Component
-var AreaselectionPage = React.createClass({
+var GenomeViewerPage = React.createClass({
 
   showAll : function(e) {
     var chart = AmCharts.charts[0]
@@ -73,7 +73,7 @@ var AreaselectionPage = React.createClass({
     }];
 
     for (var i=0; i<jsonValidRsids.length; i++) {
-      var validRsid = JSON.parse(jsonValidRsids[i]);
+      var validRsid = jsonValidRsids[i];
 
       data[validRsid.chromosome][validRsid.nom] = validRsid.position;
 
@@ -231,4 +231,4 @@ var AreaselectionPage = React.createClass({
   }
 });
 
-module.exports = AreaselectionPage;
+module.exports = GenomeViewerPage;

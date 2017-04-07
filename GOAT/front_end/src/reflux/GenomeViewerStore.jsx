@@ -19,18 +19,18 @@ under the License.*/
 // mail : victor.dupuy@hei.fr
 
 var Reflux = require('reflux');
-var AreaSelectionActions = require('./AreaSelectionActions.jsx');
+var GenomeViewerActions = require('./GenomeViewerActions.jsx');
 
-var AreaSelectionStore = Reflux.createStore({
-  listenables : [AreaSelectionActions],
+var GenomeViewerStore = Reflux.createStore({
+  listenables : [GenomeViewerActions],
   fireUpdate : function(){
     //We trigger this function when we want to refresh the data
-    this.trigger('areaSelection', [
+    this.trigger('adamGenomeViewer', [
       this.data,
       {
         rsid : this.rsid,
         chromosome : this.chromosome,
-        phenotype : this.phenotype
+        position : this.position
       }
     ]);
   },
@@ -60,7 +60,7 @@ var AreaSelectionStore = Reflux.createStore({
     };
     xhr.send();*/
   },
-  getAreaSelection : function(chromosome, position, rsid){
+  adamGenomeViewer : function(chromosome, position, rsid){
     // console.log(chromosome, position, phenotype);
     this.trigger('wait');
     this.position = position;
@@ -73,7 +73,7 @@ var AreaSelectionStore = Reflux.createStore({
     if(height>=1000){
       height = 1000;
     }
-    xhr.open('GET', encodeURI("/areaSelection/"+chromosome+"/"+position+"/"+rsid+"/"+width+"/"+height), true);
+    xhr.open('GET', encodeURI("/adamGenomeViewer/"+chromosome+"/"+position+"/"+rsid+"/"+width+"/"+height), true);
     xhr.onload = function(){
       if(xhr.status==200){
          result = JSON.parse(xhr.responseText);
@@ -122,7 +122,7 @@ var AreaSelectionStore = Reflux.createStore({
       xhr.send(data);
   },
 
-  handleFile : function(file, rsid_header, chromosome_header, position_header) {
+  fileGenomeViewer : function(file, rsid_header, chromosome_header, position_header) {
       var store = this;
       var xhr = new XMLHttpRequest();
 
@@ -132,7 +132,7 @@ var AreaSelectionStore = Reflux.createStore({
       data.append('chromosome_header', chromosome_header);
       data.append('position_header', position_header);
 
-      xhr.open('POST', encodeURI("/handleFile/"), true);
+      xhr.open('POST', encodeURI("/fileGenomeViewer/"), true);
       xhr.onload = function() {
         if (xhr.status==200) {
             result = JSON.parse(xhr.responseText);
@@ -148,4 +148,4 @@ var AreaSelectionStore = Reflux.createStore({
 
 });
 
-module.exports = AreaSelectionStore;
+module.exports = GenomeViewerStore;

@@ -43,31 +43,45 @@ from Tools import UserLogs
 #--- JSON ---#
 import json
 
-# Create your views here.
+import urllib2
 
-
-def areaSelection(request, chromosome, position, rsid, userWidth, userHeight):
+def adamGenomeViewer(request, chromosome, position, rsid, userWidth, userHeight):
     print request, chromosome, position, rsid
 
-    data = [
-        {"rsid": "rs2558128", "position": "168052827", "chromosome": "4"},
-        {"rsid": "rs2319227", "position": "68281255", "chromosome": "4"},
-        {"rsid": "rs1177257", "position": "35936786", "chromosome": "14"},
-        {"rsid": "rs12403445", "position": "180587560", "chromosome": "1"},
-        {"rsid": "rs7539261", "position": "40050503", "chromosome": "1"},
-        {"rsid": "rs2718295", "position": "88262924", "chromosome": "7"},
-        {"rsid": "rs6489602", "position": "5140968", "chromosome": "12"},
-        {"rsid": "rs1402337", "position": "119154183", "chromosome": "12"}
-    ]
+    params = "rsid=" + rsid + "&chromosome=" + chromosome + "&position=" + position;
 
-    return genomeViewer(data)
+    data = urllib2.urlopen("http://ec2-52-35-68-107.us-west-2.compute.amazonaws.com:8000/matching?" + params).read()
 
-def genomeViewer(data):
+    rsidArray = []
+    rsidArray.append(json.loads(data))#[o['rsid'] for o in data]
 
-    rsidArray = data#[o['rsid'] for o in data]
+    chrBoundaries = getChromosomeBoundaries()
+
+    rsidArray = json.dumps(rsidArray, ensure_ascii=False, encoding="utf-8").replace("\\", "")
+
+    response = json.dumps({
+            'data' : {
+                'jsonChrBoundaries' : chrBoundaries,
+                'jsonValidRsids' : rsidArray
+            }
+        },
+        sort_keys=True,
+        indent=4,
+        separators=(',', ': ')
+    )
+
+    return HttpResponse(response)
+
+def sqlGenomeViewer(data):
+
+    rsidArray = data
 
     chrBoundaries = getChromosomeBoundaries()
     validRsids = fetchValidRsids(rsidArray)
+
+
+    print "validRsids"
+    print validRsids
 
     response = json.dumps({
             'data' : {
@@ -107,7 +121,10 @@ def fetchValidRsids(rows):
         j = buildJsonData(match)[1:-1]
         # If no result was returned, the data was "[]" which both chars were stripped. So.. empty string.
         if j != "":
-            validRsids.append(j)
+            validRsids.append(json.loads(j))
+
+    print "validRsids"
+    print validRsids
 
     return json.dumps(validRsids)
 
@@ -126,7 +143,7 @@ def extractHeader(request):
     f.close()
     return HttpResponse(response)
 
-def handleFile(request):
+def fileGenomeViewer(request):
     f = request.FILES['file']
     reader = csv.DictReader(f)
     data = json.dumps([ row for row in reader ])
@@ -141,4 +158,4 @@ def handleFile(request):
             'chromosome': row[request.POST['chromosome_header']]
         })
 
-    return genomeViewer(output)
+    return sqlGenomeViewer(output)

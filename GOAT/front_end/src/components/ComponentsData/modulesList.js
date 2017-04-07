@@ -23,7 +23,7 @@ under the License.*/
 //Dependencies
 //var SnpActions = require('../../reflux/SnpActions.jsx');
 //var ManhattanActions = require('../../reflux/ManhattanActions.jsx');
-var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
+var GenomeViewerActions = require('../../reflux/GenomeViewerActions.jsx');
 //var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
 
 //Variables
@@ -47,7 +47,7 @@ module.exports= [
     height : "auto",
     size : oddClass,
     action : function(){
-      AreaSelectionActions.queryParams();
+      GenomeViewerActions.queryParams();
     }
   },
   {
@@ -56,7 +56,7 @@ module.exports= [
     height : "auto",
     size : evenClass,
     action : function(){
-       AreaSelectionActions.uploadFile();
+       GenomeViewerActions.uploadFile();
     }
   },
   // {

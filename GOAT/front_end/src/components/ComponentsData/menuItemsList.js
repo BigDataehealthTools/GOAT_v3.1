@@ -22,7 +22,7 @@ under the License.*/
 
 //Dependencies
 var SnpActions = require('../../reflux/SnpActions.jsx');
-var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
+var GenomeViewerActions = require('../../reflux/GenomeViewerActions.jsx');
 var SnpsForGeneActions = require('../../reflux/SnpsForGeneActions.jsx');
 
 module.exports = [
@@ -34,28 +34,17 @@ module.exports = [
     }
   },
   {
-    content : "GENE QUERY",
-    url : '/geneQuery',
+    content : "ADAM Genome Viewer",
+    url : '/adamGenomeViewer',
     action : function(){
-      SnpActions.queryParams();
+      GenomeViewerActions.queryParams();
     }
   },
   {
-    content : "AREA SELECTION",
-    url : '/areaSelection',
+    content : "SQL Genome Viewer",
+    url : '/fileGenomeViewer',
     action : function(){
-      AreaSelectionActions.queryParams();
-    }
-  },
-  {
-    content : "MACHINE LEARNING",
-    url : '/machineLearning'
-  },
-  {
-    content : "TEST",
-    url : '/test',
-    action : function(){
-      SnpActions.goTest();
+      GenomeViewerActions.uploadFile();
     }
   }
 ];

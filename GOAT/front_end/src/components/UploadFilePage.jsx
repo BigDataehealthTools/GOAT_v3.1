@@ -22,7 +22,7 @@ under the License.*/
 var React = require('react');
 var Reflux = require('reflux');
 var Dropzone = require('react-dropzone');
-var AreaSelectionActions = require('../reflux/AreaSelectionActions.jsx');
+var GenomeViewerActions = require('../reflux/GenomeViewerActions.jsx');
 
 //Component
 var UploadFilePage = React.createClass({
@@ -32,7 +32,7 @@ var UploadFilePage = React.createClass({
             chromosome_header: 'chr',
             position_header: 'position',
             dropzone_text: 'Drag and drop a file or click here to upload your file.',
-            areaSelectionDisabled: true
+            genomeViewerDisabled: true
         };
     },
 
@@ -45,7 +45,7 @@ var UploadFilePage = React.createClass({
             rsid_header: nextProps.rsid,
             chromosome_header: nextProps.chr,
             position_header: nextProps.pos,
-            areaSelectionDisabled: false
+            genomeViewerDisabled: false
         });
     },
 
@@ -74,13 +74,13 @@ var UploadFilePage = React.createClass({
 
     onSubmit : function(e) {
         e.preventDefault();
-        AreaSelectionActions.extractHeader(this.state.file);
+        GenomeViewerActions.extractHeader(this.state.file);
     },
 
-    OnHandleFile : function(e) {
+    OnGenomeViewer : function(e) {
         e.preventDefault();
 
-        AreaSelectionActions.handleFile(
+        GenomeViewerActions.fileGenomeViewer(
             this.state.file,
             this.state.rsid_header,
             this.state.chromosome_header,
@@ -159,8 +159,8 @@ var UploadFilePage = React.createClass({
             </div>
 
             <p>
-                <button disabled={this.state.areaSelectionDisabled} id="areaSelection_button" className="btn btn-primary" type="button" onClick={this.OnHandleFile}>
-                    Area selection
+                <button disabled={this.state.genomeViewerDisabled} id="areaSelection_button" className="btn btn-primary" type="button" onClick={this.OnGenomeViewer}>
+                    Genome Viewer
                 </button>
             </p>
           </div>

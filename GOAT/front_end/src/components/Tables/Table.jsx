@@ -23,8 +23,8 @@ var React = require('react');
 var Reflux = require('reflux');
 
 var Griddle = require('griddle-react');
-var AreaSelectionActions = require('../../reflux/AreaSelectionActions.jsx');
-var AreaSelectionStore = require('../../reflux/AreaSelectionStore.jsx');
+var GenomeViewerActions = require('../../reflux/GenomeViewerActions.jsx');
+var GenomeViewerStore = require('../../reflux/GenomeViewerStore.jsx');
 
 //Sub-components
 var Button = require('../Buttons/Button.jsx');
@@ -33,7 +33,7 @@ var PhenotypesTable = require('./PhenotypesTable.jsx');
 //Component
 var Table = React.createClass({
   mixins : [
-    Reflux.listenTo(AreaSelectionStore, 'onChange')
+    Reflux.listenTo(GenomeViewerStore, 'onChange')
   ],
   onChange : function(event, data){
     switch(event){
@@ -65,7 +65,7 @@ var Table = React.createClass({
           e.preventDefault();
           if(!table.state.submitedAreaSelection){
             table.setState({submitedAreaSelection : true});
-            AreaSelectionActions.getAreaSelection(this.props.rowData.Chr, this.props.rowData.Pos, this.props.rowData.Phenotype, this.props.data, this.props.rowData.Phenotype);
+            GenomeViewerActions.getAreaSelection(this.props.rowData.Chr, this.props.rowData.Pos, this.props.rowData.Phenotype, this.props.data, this.props.rowData.Phenotype);
           }else{
             alert('There is already a request being handled right now. Wait for a few seconds so that the application can get the data and display it');
           }
