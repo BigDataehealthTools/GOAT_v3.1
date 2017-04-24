@@ -13,9 +13,12 @@
 
     pip install -r /path/to/requirements.txt
 
-5. Set a MySQL database and load the marqueurs.sql table located in the project's root (it's a truncated dataset.)
-   To have a complete dataset, contact beatriz.kanzki@gmail.com
+5. Set a MySQL database and load the marqueurs.sql table located in the project's root (it's a truncated dataset). 
+   
+   To have a complete dataset, contact beatriz.kanzki@gmail.com 
+   
    Also make sure MySQL is running!
+
 6. Connect project to database (in the settings.py file)
 7. Migrate database (not really necessary since we loaded the sql files, but we never know...)
 
